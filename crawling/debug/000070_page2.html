@@ -1,0 +1,1186 @@
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<title>네이버페이 증권</title>
+
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/newstock.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/common.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/layout.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/main.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/newstock2.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/newstock3.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/world.css">
+</head>
+<body>
+<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/js/jindo.min.ns.1.5.3.euckr.js"></script>
+<script language="JavaScript">
+var nsc="finance.stockend";
+
+function mouseOver(obj){
+  obj.style.backgroundColor="#f6f4e5";
+}
+function mouseOut(obj){
+  obj.style.backgroundColor="#ffffff";
+}
+function showPannel(layerId){
+	var layer = jindo.$(layerId);
+	layer.style.display='block';
+	
+	if (layerId == "summary_lyr") {
+		var layerHeight = jindo.$Element(layer).height();
+		jindo.$Element("summary_ifr").height(layerHeight);
+	}
+}
+function hidePannel(layerId){
+	var layer = jindo.$(layerId);
+	layer.style.display='none';
+}
+function togglePannel(layerId) {
+	var elTargetLayer = jindo.$Element(jindo.$$.getSingle("#" + layerId));
+	
+	if (elTargetLayer != null) {
+		if (elTargetLayer.visible()) {
+			hidePannel(layerId);
+		} else {
+			showPannel(layerId);
+		}
+	}
+}
+function toggleList(classId, clusterId) {
+	var up = true;
+	var sm = 'entity_id.basic';
+	if (classId.text == '접기') {
+		if (sm == 'title_entity_id.basic') {
+			clickcr(this,'stn.ntitclustclose','','',event);
+		} else {
+			clickcr(this,'stn.nbdyclustclose','','',event);
+		}
+		jindo.$Element(classId).html('관련뉴스 <em>' + classId.getAttribute("data-count") + '</em>건 더보기<span class="ico_down"></span>');
+		up = false;
+	} else {
+		clickcr(this,'stn.ntitclustclose','','',event);
+		if (sm == 'title_entity_id.basic') {
+			clickcr(this,'stn.ntitclustmore','','',event);
+		} else {
+			clickcr(this,'stn.nbdyclustmore','','',event);
+		}
+		jindo.$Element(classId).html('접기<span class="ico_up"></span>');
+	}
+
+	var height = 0;
+	if (document.querySelector("._clusterId"+clusterId)) {
+		height = document.querySelector("._clusterId"+clusterId).offsetHeight - 46;
+	}
+
+	jindo.$ElementList(jindo.$$(".hide_news", classId.parentElement.parentElement.parentElement)).toggleClass('none');
+
+	if (up) {
+		parentHeightResize();
+	} else {
+		parentHeightResize(document.body.offsetHeight - height);
+	}
+}
+</script>
+<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/js/nclktag.js"></script>
+		<div class="tb_cont _replaceNewsLink">
+			<div class="tlline2">
+				<strong><span class="red03">종목</span>뉴스</strong>
+				<div class="info_txt">종목뉴스 안내<a href="#" onclick="togglePannel('layer_section'); clickcr(this,'stn.ninfo','','',event); return false;" class="btn_info_layer"><img src="https://ssl.pstatic.net/static/nfinance/2017/10/13/btn_help2.png" alt="상세 설명"></a>
+					<div class="layer_section" id="layer_section" style="display:none">
+						<strong>네이버페이 증권 종목뉴스 안내</strong>
+						<p class="txt">
+							AI(인공지능 검색기술)을 이용한 종목 관련 뉴스입니다. <br>관련뉴스는 자동으로 묶어 보여줍니다.
+						</p>
+						<a href="#" onclick="togglePannel('layer_section'); return false;" class="btn_close"><span class="blind">닫기</span></a>
+					</div>
+				</div>
+			</div>
+			
+			<table summary="종목뉴스의 제목, 정보제공, 날짜" cellspacing="0" class="type5">
+				<caption>종목뉴스</caption>
+				<colgroup>
+					<col>
+					<col width="130px">
+					<col width="110px">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">제목</th>
+						<th scope="col">정보제공</th>
+						<th scope="col">날짜</th>
+					</tr>
+				</thead>
+
+		 		<tbody>
+		 		
+		 		
+		 		
+		 		<!-- [D] tr class : 첫번째 first, 마지막 last, 연관 뉴스 relation_tit, 연관 뉴스 목록 relation_lst -->
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							 class="first relation_tit"
+		 							
+		 							
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0003672093&office_id=020&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양그룹 인사&hellip; 삼양사 대표이사 이운익씨</a>
+									
+								</td>
+								<td class="info">동아일보</td>
+								<td class="date"> 2025.11.05 03:01</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId0200003672093">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0003938936&office_id=023&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹 대표 4명 교체&hellip; 삼양사 화학 부문 대표에 이운익</a>
+													
+												</td>
+												<td class="info">조선일보</td>
+												<td class="date"> 2025.11.05 00:33</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0001812338&office_id=005&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양사 신임 대표에 이운익 내정</a>
+									
+								</td>
+								<td class="info">국민일보</td>
+								<td class="date"> 2025.11.05 01:19</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0000472844&office_id=374&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양그룹, 이운익 삼양사 대표 선임&hellip;IBM&middot;한화 출신 영입</a>
+									
+								</td>
+								<td class="info">SBS Biz</td>
+								<td class="date"> 2025.11.04 18:21</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId3740000472844">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002747468&office_id=021&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양사 새 대표에 이운익&hellip; &ldquo;핵심 화학사업 성장 주도&rdquo;</a>
+													
+												</td>
+												<td class="info">문화일보</td>
+												<td class="date"> 2025.11.04 11:54</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002552394&office_id=016&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 삼양사에 &lsquo;화학통&rsquo; 이운익 대표 선임</a>
+													
+												</td>
+												<td class="info">헤럴드경제</td>
+												<td class="date"> 2025.11.04 11:21</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005272974&office_id=008&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양사 이운익 신임 대표 내정..그룹 정기 인사 단행</a>
+													
+												</td>
+												<td class="info">머니투데이</td>
+												<td class="date"> 2025.11.04 09:45</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005272973&office_id=008&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 정기 임원인사&middot;조직개편&hellip;이운익 삼양사 대표이사 내정</a>
+													
+												</td>
+												<td class="info">머니투데이</td>
+												<td class="date"> 2025.11.04 09:45</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002552209&office_id=016&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹 2025 임원인사&hellip;삼양사, &lsquo;화학통&rsquo; 이운익 대표 선임</a>
+													
+												</td>
+												<td class="info">헤럴드경제</td>
+												<td class="date"> 2025.11.04 09:38</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0004551560&office_id=011&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹 &quot;변화에 선제 대응&quot;&hellip;계열사 4곳 대표 교체</a>
+													
+												</td>
+												<td class="info">서울경제</td>
+												<td class="date"> 2025.11.04 09:31</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0013578762&office_id=003&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 삼양사 신임 대표에 이운익 낙점&hellip;삼양패키징&middot;삼양데이타...</a>
+													
+												</td>
+												<td class="info">뉴시스</td>
+												<td class="date"> 2025.11.04 09:14</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002552161&office_id=016&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양사 신임대표에 이운익&hellip;삼양패키징 윤석환&middot;삼양KCI 안태환</a>
+													
+												</td>
+												<td class="info">헤럴드경제</td>
+												<td class="date"> 2025.11.04 09:12</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0003366387&office_id=030&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, AI 전환&middot;글로벌 전략 재정비&hellip;정기 인사 단행</a>
+													
+												</td>
+												<td class="info">전자신문</td>
+												<td class="date"> 2025.11.04 09:11</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0000440239&office_id=629&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 정기 임원인사 단행&hellip;삼양사&middot;삼양패키징&middot;삼양KCI 대표 내....</a>
+													
+												</td>
+												<td class="info">더팩트</td>
+												<td class="date"> 2025.11.04 09:08</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0008583041&office_id=421&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 사장단 인사&hellip;삼양사 대표 이운익&middot;삼양패키징 윤석환</a>
+													
+												</td>
+												<td class="info">뉴스1</td>
+												<td class="date"> 2025.11.04 09:07</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '3740000472844'); return false;" data-count="10">관련뉴스 <em>10</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0005429609&office_id=014&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양그룹 계열사 4곳 대표이사 신규 선임</a>
+									
+								</td>
+								<td class="info">파이낸셜뉴스</td>
+								<td class="date"> 2025.11.04 18:14</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId0140005429609">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005584551&office_id=009&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양사 대표에 '화학통' 이운익&hellip;사장 3명 내부 발탁</a>
+													
+												</td>
+												<td class="info">매일경제</td>
+												<td class="date"> 2025.11.04 17:44</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0000895630&office_id=469&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 삼양사 대표로 이운익 AM BU장 내정</a>
+													
+												</td>
+												<td class="info">한국일보</td>
+												<td class="date"> 2025.11.04 16:31</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002208642&office_id=138&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>&ldquo;AI&middot;화학 새판 짠다&rdquo; 삼양그룹, 대규모 인사 단행</a>
+													
+												</td>
+												<td class="info">디지털데일리</td>
+												<td class="date"> 2025.11.04 15:56</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002991415&office_id=029&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 4개 계열사 대표 교체 조기 인사 단행&hellip; 삼양사 대표에 이...</a>
+													
+												</td>
+												<td class="info">디지털타임스</td>
+												<td class="date"> 2025.11.04 13:08</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0000798042&office_id=422&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양사 신임대표에 이운익&hellip;삼양그룹, 4개 계열사 대표 교체</a>
+													
+												</td>
+												<td class="info">연합뉴스TV</td>
+												<td class="date"> 2025.11.04 11:47</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0015722711&office_id=001&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양사 대표에 이운익&hellip;삼양그룹, 네 개 계열사 대표 교체</a>
+													
+												</td>
+												<td class="info">연합뉴스</td>
+												<td class="date"> 2025.11.04 10:55</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005429137&office_id=014&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 정기 임원인사 한달 앞당겨..&quot;변화에 선제 대응&quot;</a>
+													
+												</td>
+												<td class="info">파이낸셜뉴스</td>
+												<td class="date"> 2025.11.04 09:21</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '0140005429609'); return false;" data-count="6">관련뉴스 <em>6</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0005206953&office_id=015&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양사 새 대표에 이운익, 삼양패키징 대표 윤석환</a>
+									
+								</td>
+								<td class="info">한국경제</td>
+								<td class="date"> 2025.11.04 18:04</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId0150005206953">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0004551565&office_id=011&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>[인사] 삼양그룹</a>
+													
+												</td>
+												<td class="info">서울경제</td>
+												<td class="date"> 2025.11.04 09:37</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005272933&office_id=008&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>[인사]삼양그룹</a>
+													
+												</td>
+												<td class="info">머니투데이</td>
+												<td class="date"> 2025.11.04 09:09</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0013578707&office_id=003&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>[인사]삼양그룹</a>
+													
+												</td>
+												<td class="info">뉴시스</td>
+												<td class="date"> 2025.11.04 09:04</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '0150005206953'); return false;" data-count="2">관련뉴스 <em>2</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0000087480&office_id=243&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양그룹, 정기 임원인사...이운익 삼양사 대표 내정</a>
+									
+								</td>
+								<td class="info">이코노미스트</td>
+								<td class="date"> 2025.11.04 15:35</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId2430000087480">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0003020868&office_id=119&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 정기 임원인사 단행&hellip;이운익 삼양사 대표 내정</a>
+													
+												</td>
+												<td class="info">데일리안</td>
+												<td class="date"> 2025.11.04 15:27</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002396796&office_id=092&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 정기 임원인사&hellip;삼양사 대표에 '이운익' 내정</a>
+													
+												</td>
+												<td class="info">지디넷코리아</td>
+												<td class="date"> 2025.11.04 10:31</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0001119915&office_id=366&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 정기 임원인사 단행&hellip; 이운익 삼양사 대표&middot;윤석환 삼양패.....</a>
+													
+												</td>
+												<td class="info">조선비즈</td>
+												<td class="date"> 2025.11.04 09:56</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005584105&office_id=009&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양사 대표이사에 이운익&hellip;삼양그룹 한달 앞당긴 정기인사</a>
+													
+												</td>
+												<td class="info">매일경제</td>
+												<td class="date"> 2025.11.04 09:46</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0000074485&office_id=293&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 정기 임원인사 단행&hellip;이운익 삼양사 대표 내정</a>
+													
+												</td>
+												<td class="info">블로터</td>
+												<td class="date"> 2025.11.04 09:31</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0000977629&office_id=031&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 정기 임원인사?삼양사 대표에 이운익 내정</a>
+													
+												</td>
+												<td class="info">아이뉴스24</td>
+												<td class="date"> 2025.11.04 09:29</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0006155648&office_id=018&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 임원인사 단행&hellip;이운익 삼양사 대표 내정</a>
+													
+												</td>
+												<td class="info">이데일리</td>
+												<td class="date"> 2025.11.04 09:05</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0013578703&office_id=003&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양사 대표에 이운익 내정&hellip;삼양그룹 정기 인사 단행</a>
+													
+												</td>
+												<td class="info">뉴시스</td>
+												<td class="date"> 2025.11.04 09:03</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '2430000087480'); return false;" data-count="7">관련뉴스 <em>7</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0002396745&office_id=092&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양바이오팜, 인적분할 거쳐 공식 출범&hellip;그룹 의약바이오사업 전담</a>
+									
+								</td>
+								<td class="info">지디넷코리아</td>
+								<td class="date"> 2025.11.04 09:12</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0000472368&office_id=374&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양바이오팜, 삼양홀딩스서 분할&hellip;의약바이오사업 전담</a>
+									
+								</td>
+								<td class="info">SBS Biz</td>
+								<td class="date"> 2025.11.03 08:39</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0001119555&office_id=366&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>공시 위반 반복되는데&hellip; 깜깜이 주식 거래 막는 감시 시스템 없어</a>
+									
+								</td>
+								<td class="info">조선비즈</td>
+								<td class="date"> 2025.11.03 06:02</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0000977212&office_id=031&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양바이오팜, 의약바이오 전담 독립법인으로 공식 출범</a>
+									
+								</td>
+								<td class="info">아이뉴스24</td>
+								<td class="date"> 2025.11.02 17:30</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId0310000977212">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr class="last" >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002990971&office_id=029&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양바이오팜도 &lsquo;독립법인&rsquo;으로 새출발&hellip;&ldquo;기업가치 재평가 기대&rdquo;</a>
+													
+												</td>
+												<td class="info">디지털타임스</td>
+												<td class="date"> 2025.11.02 17:12</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005205714&office_id=015&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>'인적분할' 삼양바이오팜 공식 출범</a>
+													
+												</td>
+												<td class="info">한국경제</td>
+												<td class="date"> 2025.11.02 17:02</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005428162&office_id=014&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양바이오팜, 인적분할로 공식 출범&hellip;의약바이오 전문기업 새 출발</a>
+													
+												</td>
+												<td class="info">파이낸셜뉴스</td>
+												<td class="date"> 2025.11.02 14:15</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0001119469&office_id=366&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양바이오팜, 삼양홀딩스서 분할&hellip;의약바이오 전담 독립법인 출범</a>
+													
+												</td>
+												<td class="info">조선비즈</td>
+												<td class="date"> 2025.11.02 11:06</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005583084&office_id=009&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>&lsquo;바이오산업 전담&rsquo; 삼양바이오팜 출범...삼양홀딩스서 분할</a>
+													
+												</td>
+												<td class="info">매일경제</td>
+												<td class="date"> 2025.11.02 11:03</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005205637&office_id=015&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>'인적분할' 삼양바이오팜 공식 출범&hellip;24일 코스피 재상장, 김경진 대...</a>
+													
+												</td>
+												<td class="info">한국경제</td>
+												<td class="date"> 2025.11.02 10:44</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0015718911&office_id=001&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양바이오팜, 삼양홀딩스서 분할&hellip;의약바이오사업 전담</a>
+													
+												</td>
+												<td class="info">연합뉴스</td>
+												<td class="date"> 2025.11.02 10:33</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0006153938&office_id=018&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양바이오팜, 1일 공식 출범&hellip;그룹 의약바이오사업 전담</a>
+													
+												</td>
+												<td class="info">이데일리</td>
+												<td class="date"> 2025.11.02 09:16</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002990831&office_id=029&code=000070&page=2&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양바이오팜, 인적분할 거쳐 공식 출범&hellip;김경진 대표 선임</a>
+													
+												</td>
+												<td class="info">디지털타임스</td>
+												<td class="date"> 2025.11.02 08:58</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '0310000977212'); return false;" data-count="8">관련뉴스 <em>8</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+				</tbody>
+			</table>
+ 						
+			<!--- 종목뉴스 끝--->
+			<!--- 페이지 네비게이션 시작--->
+			
+			<table summary="페이지 네비게이션 리스트" class="Nnavi" align="center">
+				<caption>페이지 네비게이션</caption>
+				<tr>
+					
+						<td class="pgLL">
+				<a href="/item/news_news.naver?code=000070&amp;page=1&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>
+				<img src="https://ssl.pstatic.net/static/n/cmn/bu_pgarLL.gif" width="7" height="5" alt="">맨앞
+				</a>
+				</td>
+
+		                
+		                <td>
+				<a href="/item/news_news.naver?code=000070&amp;page=1&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>1</a>
+				</td>
+<td class="on">
+				<a href="/item/news_news.naver?code=000070&amp;page=2&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>2</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=3&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>3</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=4&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>4</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=5&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>5</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=6&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>6</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=7&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>7</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=8&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>8</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=9&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>9</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=10&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>10</a>
+				</td>
+
+		                <td class="pgR">
+				<a href="/item/news_news.naver?code=000070&amp;page=11&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>
+				다음<img src="https://ssl.pstatic.net/static/n/cmn/bu_pgarR.gif" width="3" height="5" alt="" border="0">
+				</a>
+				</td>
+
+		                <td class="pgRR">
+				<a href="/item/news_news.naver?code=000070&amp;page=76&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>맨뒤
+				<img src="https://ssl.pstatic.net/static/n/cmn/bu_pgarRR.gif" width="8" height="5" alt="" border="0">
+				</a>
+				</td>
+
+		            
+				</tr>
+			</table>
+			
+
+
+	<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/js/ntm.js"></script>
+	<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/js/nLog.js"></script>
+    <script type="text/javascript">
+        ;(function(){
+            var eventType = "onpageshow" in window ? "pageshow" : "load";
+            jindo.$Fn(function(){
+                lcs_do();
+            }).attach(window, eventType);
+        })();
+	</script>	
+
+
+<script type="text/javascript">
+	jindo.$Fn(function(){
+		parentHeightResize();
+
+		// _replaceNewsLink class 하위의 a 태그 조회 후 redirect
+		jindo.$$("._replaceNewsLink a").forEach(function(ele){
+			var urls = ele.href.split("?");
+			if (urls[0].indexOf("/news_read.naver") > 0 || urls[0].indexOf("/newsRead.naver") > 0) {
+				var param = jindo.$S(urls[1]).parseString();
+				var oid = param.office_id ? param.office_id : param.officeId;
+				var aid = param.article_id ? param.article_id : param.articleId;
+
+				ele.target = "_blank";
+				ele.href = jindo.$S("https://n.news.naver.com/mnews/article/%s/%s").format(oid, aid);
+			}
+		});
+
+	}).attach(window, 'load');
+</script>
+<script>
+	var targetWindow = window.top;
+	var targetOrigin = location.protocol+'//'+location.host;
+
+	function parentHeightResize(height) {
+		window.scrollTo(0, 0);
+		targetWindow.postMessage({
+			"type":"syncHeight",
+			"height": (height) ? height : document.body.offsetHeight
+		}, targetOrigin);
+	}
+
+	function parentScrollTo(to) {
+		targetWindow.postMessage({
+			"type":"syncScrollTo",
+			"to": to
+		}, targetOrigin);
+	}
+
+	// iframe의 사이즈가 갱신되기 위해서 dom load되기전 300으로 먼저 수정
+	parentHeightResize(300);
+</script>
+</body>

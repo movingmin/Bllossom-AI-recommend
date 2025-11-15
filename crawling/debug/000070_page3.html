@@ -1,0 +1,1100 @@
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<title>네이버페이 증권</title>
+
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/newstock.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/common.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/layout.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/main.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/newstock2.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/newstock3.css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/css/world.css">
+</head>
+<body>
+<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/js/jindo.min.ns.1.5.3.euckr.js"></script>
+<script language="JavaScript">
+var nsc="finance.stockend";
+
+function mouseOver(obj){
+  obj.style.backgroundColor="#f6f4e5";
+}
+function mouseOut(obj){
+  obj.style.backgroundColor="#ffffff";
+}
+function showPannel(layerId){
+	var layer = jindo.$(layerId);
+	layer.style.display='block';
+	
+	if (layerId == "summary_lyr") {
+		var layerHeight = jindo.$Element(layer).height();
+		jindo.$Element("summary_ifr").height(layerHeight);
+	}
+}
+function hidePannel(layerId){
+	var layer = jindo.$(layerId);
+	layer.style.display='none';
+}
+function togglePannel(layerId) {
+	var elTargetLayer = jindo.$Element(jindo.$$.getSingle("#" + layerId));
+	
+	if (elTargetLayer != null) {
+		if (elTargetLayer.visible()) {
+			hidePannel(layerId);
+		} else {
+			showPannel(layerId);
+		}
+	}
+}
+function toggleList(classId, clusterId) {
+	var up = true;
+	var sm = 'entity_id.basic';
+	if (classId.text == '접기') {
+		if (sm == 'title_entity_id.basic') {
+			clickcr(this,'stn.ntitclustclose','','',event);
+		} else {
+			clickcr(this,'stn.nbdyclustclose','','',event);
+		}
+		jindo.$Element(classId).html('관련뉴스 <em>' + classId.getAttribute("data-count") + '</em>건 더보기<span class="ico_down"></span>');
+		up = false;
+	} else {
+		clickcr(this,'stn.ntitclustclose','','',event);
+		if (sm == 'title_entity_id.basic') {
+			clickcr(this,'stn.ntitclustmore','','',event);
+		} else {
+			clickcr(this,'stn.nbdyclustmore','','',event);
+		}
+		jindo.$Element(classId).html('접기<span class="ico_up"></span>');
+	}
+
+	var height = 0;
+	if (document.querySelector("._clusterId"+clusterId)) {
+		height = document.querySelector("._clusterId"+clusterId).offsetHeight - 46;
+	}
+
+	jindo.$ElementList(jindo.$$(".hide_news", classId.parentElement.parentElement.parentElement)).toggleClass('none');
+
+	if (up) {
+		parentHeightResize();
+	} else {
+		parentHeightResize(document.body.offsetHeight - height);
+	}
+}
+</script>
+<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/js/nclktag.js"></script>
+		<div class="tb_cont _replaceNewsLink">
+			<div class="tlline2">
+				<strong><span class="red03">종목</span>뉴스</strong>
+				<div class="info_txt">종목뉴스 안내<a href="#" onclick="togglePannel('layer_section'); clickcr(this,'stn.ninfo','','',event); return false;" class="btn_info_layer"><img src="https://ssl.pstatic.net/static/nfinance/2017/10/13/btn_help2.png" alt="상세 설명"></a>
+					<div class="layer_section" id="layer_section" style="display:none">
+						<strong>네이버페이 증권 종목뉴스 안내</strong>
+						<p class="txt">
+							AI(인공지능 검색기술)을 이용한 종목 관련 뉴스입니다. <br>관련뉴스는 자동으로 묶어 보여줍니다.
+						</p>
+						<a href="#" onclick="togglePannel('layer_section'); return false;" class="btn_close"><span class="blind">닫기</span></a>
+					</div>
+				</div>
+			</div>
+			
+			<table summary="종목뉴스의 제목, 정보제공, 날짜" cellspacing="0" class="type5">
+				<caption>종목뉴스</caption>
+				<colgroup>
+					<col>
+					<col width="130px">
+					<col width="110px">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">제목</th>
+						<th scope="col">정보제공</th>
+						<th scope="col">날짜</th>
+					</tr>
+				</thead>
+
+		 		<tbody>
+		 		
+		 		
+		 		
+		 		<!-- [D] tr class : 첫번째 first, 마지막 last, 연관 뉴스 relation_tit, 연관 뉴스 목록 relation_lst -->
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									 class="first"
+		 							
+		 							
+		 							
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0004550387&office_id=011&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>기업 공시 [10월 31일]</a>
+									
+								</td>
+								<td class="info">서울경제</td>
+								<td class="date"> 2025.10.31 16:38</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0002370870&office_id=123&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양그룹, 신규 기업광고 론칭... &lsquo;보통T가 아니다 스페셜티다&rsquo;편</a>
+									
+								</td>
+								<td class="info">조세일보</td>
+								<td class="date"> 2025.10.29 17:22</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId1230002370870">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0013564873&office_id=003&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 기업 알리기 총력&hellip;'스페셜티' 광고 공개</a>
+													
+												</td>
+												<td class="info">뉴시스</td>
+												<td class="date"> 2025.10.29 09:24</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0006149692&office_id=018&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>&ldquo;너 T야?&rdquo;, &ldquo;스페셜T다&rdquo;&hellip;삼양그룹, 유튜브 영상 200만뷰 돌파</a>
+													
+												</td>
+												<td class="info">이데일리</td>
+												<td class="date"> 2025.10.29 09:08</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005671008&office_id=277&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, MBTI 소재로 '스페셜티' 알렸다&hellip;신규 기업광고 200만...</a>
+													
+												</td>
+												<td class="info">아시아경제</td>
+												<td class="date"> 2025.10.29 09:00</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '1230002370870'); return false;" data-count="2">관련뉴스 <em>2</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0000438392&office_id=629&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>&quot;박정민이 말하는 스페셜T&quot;&hellip;삼양그룹, 신규 광고 조회수 200만회 돌...</a>
+									
+								</td>
+								<td class="info">더팩트</td>
+								<td class="date"> 2025.10.29 10:58</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId6290000438392">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0003364021&office_id=030&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 기업광고 '보통T가 아니다 스페셜티다' 공개</a>
+													
+												</td>
+												<td class="info">전자신문</td>
+												<td class="date"> 2025.10.29 10:20</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002549022&office_id=016&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 광고 &lsquo;보통 T가 아니다, 스페셜티다&rsquo;&hellip;조회수 폭발 비결....</a>
+													
+												</td>
+												<td class="info">헤럴드경제</td>
+												<td class="date"> 2025.10.29 09:15</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002549008&office_id=016&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 신규 기업광고 &lsquo;보통T가 아니다 스페셜티다&rsquo; 편 공개</a>
+													
+												</td>
+												<td class="info">헤럴드경제</td>
+												<td class="date"> 2025.10.29 09:01</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '6290000438392'); return false;" data-count="2">관련뉴스 <em>2</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0000438125&office_id=629&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>&quot;설탕 뺀 단맛에 푹 빠지다&quot;&hellip;알룰로스로 존재감 다지는 삼양사</a>
+									
+								</td>
+								<td class="info">더팩트</td>
+								<td class="date"> 2025.10.28 15:01</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0002547871&office_id=016&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양그룹 창립 101주년&hellip;김윤 회장 &ldquo;글로벌 경쟁력 키우자&rdquo;</a>
+									
+								</td>
+								<td class="info">헤럴드경제</td>
+								<td class="date"> 2025.10.27 11:22</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId0160002547871">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0000470727&office_id=374&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹 창립 101주년&hellip;김윤 회장 &quot;도전&middot;혁신해야&quot;</a>
+													
+												</td>
+												<td class="info">SBS Biz</td>
+												<td class="date"> 2025.10.27 09:11</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002547606&office_id=016&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 창립 101주년 기념 &lsquo;퍼포즈 워크 10.1&rsquo; 행사 개최</a>
+													
+												</td>
+												<td class="info">헤럴드경제</td>
+												<td class="date"> 2025.10.27 08:37</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002547580&office_id=016&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>김윤 삼양홀딩스 회장 &ldquo;스페셜티 사업 중심 제품 차별화&rdquo;</a>
+													
+												</td>
+												<td class="info">헤럴드경제</td>
+												<td class="date"> 2025.10.27 08:06</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0003477932&office_id=025&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>[Biz &amp; Now] 삼양그룹 임직원이 10.1㎞ 함께 걸은 이유는&hellip;</a>
+													
+												</td>
+												<td class="info">중앙일보</td>
+												<td class="date"> 2025.10.27 00:01</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '0160002547871'); return false;" data-count="3">관련뉴스 <em>3</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0003669811&office_id=020&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>[단신]삼성전자, 호주서 &lsquo;가장 사랑받는 가전브랜드&rsquo;로 선정 外</a>
+									
+								</td>
+								<td class="info">동아일보</td>
+								<td class="date"> 2025.10.27 03:02</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0015701824&office_id=001&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양그룹, 창립 101주년 기념 '퍼포즈 워크 10.1' 행사 개최</a>
+									
+								</td>
+								<td class="info">연합뉴스</td>
+								<td class="date"> 2025.10.26 21:09</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId0010015701824">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005202089&office_id=015&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹 창립 101주년&hellip;김윤 &quot;도전&middot;혁신 나서야&quot;</a>
+													
+												</td>
+												<td class="info">한국경제</td>
+												<td class="date"> 2025.10.26 19:38</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0015701775&office_id=001&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>김윤 삼양홀딩스 회장 &quot;스페셜티 사업 중심으로 제품 차별화&quot;</a>
+													
+												</td>
+												<td class="info">연합뉴스</td>
+												<td class="date"> 2025.10.26 19:00</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005424693&office_id=014&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>&lsquo;101돌&rsquo; 삼양그룹, 임직원과 트레킹 행사</a>
+													
+												</td>
+												<td class="info">파이낸셜뉴스</td>
+												<td class="date"> 2025.10.26 18:32</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005201991&office_id=015&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 창립 101주년 기념 트레킹</a>
+													
+												</td>
+												<td class="info">한국경제</td>
+												<td class="date"> 2025.10.26 17:41</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005579221&office_id=009&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>김윤 삼양 회장 &quot;고부가사업 중심 제품차별화 추진&quot;</a>
+													
+												</td>
+												<td class="info">매일경제</td>
+												<td class="date"> 2025.10.26 17:40</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0003585275&office_id=081&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹 101주년&hellip;김윤 회장 &ldquo;스페셜티 사업 실행력 높여달라&rdquo;</a>
+													
+												</td>
+												<td class="info">서울신문</td>
+												<td class="date"> 2025.10.26 16:18</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005579085&office_id=009&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>김윤 회장 &ldquo;고부가사업 중심 제품차별화 추진&rdquo;</a>
+													
+												</td>
+												<td class="info">매일경제</td>
+												<td class="date"> 2025.10.26 14:40</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0004547735&office_id=011&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>김윤 삼양홀딩스 회장 &quot;도전이 곧 혁신&quot;</a>
+													
+												</td>
+												<td class="info">서울경제</td>
+												<td class="date"> 2025.10.26 11:00</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0013557763&office_id=003&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 101주년&hellip;김윤 회장 &quot;글로벌 경쟁력 키우자&quot;</a>
+													
+												</td>
+												<td class="info">뉴시스</td>
+												<td class="date"> 2025.10.26 09:15</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '0010015701824'); return false;" data-count="8">관련뉴스 <em>8</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0000975067&office_id=031&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양그룹, 창립 101주년 기념 '퍼포즈 워크 10.1' 행사 개최</a>
+									
+								</td>
+								<td class="info">아이뉴스24</td>
+								<td class="date"> 2025.10.26 16:40</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId0310000975067">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr  >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0000074042&office_id=293&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹 101주년&hellip;김윤 회장 &quot;변화&middot;혁신으로 새 100년 열자&quot;</a>
+													
+												</td>
+												<td class="info">블로터</td>
+												<td class="date"> 2025.10.26 14:18</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002989209&office_id=029&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>&lsquo;창립 101주년&rsquo; 김윤 삼양그룹 회장 &ldquo;이제는 미래사업 추진력 높일...</a>
+													
+												</td>
+												<td class="info">디지털타임스</td>
+												<td class="date"> 2025.10.26 10:40</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0003362684&office_id=030&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 창립 101주년 기념 행사 '퍼포즈 워크' 개최</a>
+													
+												</td>
+												<td class="info">전자신문</td>
+												<td class="date"> 2025.10.26 10:08</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0001117396&office_id=366&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 창립 101주년 맞아 &lsquo;퍼포즈 워크&rsquo; 진행</a>
+													
+												</td>
+												<td class="info">조선비즈</td>
+												<td class="date"> 2025.10.26 09:59</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0003016592&office_id=119&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 창립 101주년 기념 &lsquo;퍼포즈 워크 10.1&rsquo; 행사 개최</a>
+													
+												</td>
+												<td class="info">데일리안</td>
+												<td class="date"> 2025.10.26 09:49</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0006147280&office_id=018&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>창립 101주년 맞은 삼양그룹&hellip;김윤 회장 &ldquo;끊임없이 도전해 혁신하자....</a>
+													
+												</td>
+												<td class="info">이데일리</td>
+												<td class="date"> 2025.10.26 09:47</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005669516&office_id=277&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>'창립 101주년' 삼양그룹, 임직원과 함께 '기업 소명' 되새겨</a>
+													
+												</td>
+												<td class="info">아시아경제</td>
+												<td class="date"> 2025.10.26 09:45</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005268101&office_id=008&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 창립 101주년 기념식&hellip;김윤 회장 &quot;글로벌 경쟁력 키우자&quot;</a>
+													
+												</td>
+												<td class="info">머니투데이</td>
+												<td class="date"> 2025.10.26 09:30</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '0310000975067'); return false;" data-count="7">관련뉴스 <em>7</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0000073803&office_id=293&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양홀딩스, 바이오사업 4년 만에 재분할...사업확장&middot;경영승계 두마.....</a>
+									
+								</td>
+								<td class="info">블로터</td>
+								<td class="date"> 2025.10.21 11:12</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+					 					
+ 				
+ 					
+ 						
+ 							
+ 							<tr 
+ 									
+		 							
+		 							
+		 							 class="relation_tit"
+		 						 >	 						
+	 							<td class="title">
+									<a href="/item/news_read.naver?article_id=0002544345&office_id=016&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclust','','',event);" target=_top>삼양그룹&middot;양영재단 &lsquo;2025 미래 과학캠프&rsquo; 성료</a>
+									
+								</td>
+								<td class="info">헤럴드경제</td>
+								<td class="date"> 2025.10.20 11:32</td>
+ 							</tr>	 					
+ 						
+
+						
+						
+						
+ 					
+ 						
+
+						
+	 						<tr class="relation_lst _clusterId0160002544345">
+								<td colspan="3">
+									<table class="type5">
+										<caption>연관기사 목록</caption>
+										<colgroup>
+											<col>
+											<col width="130px">
+											<col width="110px">
+										</colgroup>
+										<tbody>
+						
+						
+											<tr class="last" >
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002544187&office_id=016&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 양영재단과 함께하는 &lsquo;2025 미래 과학캠프&rsquo; 성료</a>
+													
+												</td>
+												<td class="info">헤럴드경제</td>
+												<td class="date"> 2025.10.20 10:07</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0000435266&office_id=629&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹과 양영재단이 함께하는 미래 과학캠프 성료</a>
+													
+												</td>
+												<td class="info">더팩트</td>
+												<td class="date"> 2025.10.20 09:33</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0013544253&office_id=003&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹&middot;양영재단, 2025 미래 과학캠프 성료</a>
+													
+												</td>
+												<td class="info">뉴시스</td>
+												<td class="date"> 2025.10.20 09:25</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005199037&office_id=015&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, &lsquo;2025 미래 과학캠프&rsquo; 성료&hellip;과학인재 육성 나서</a>
+													
+												</td>
+												<td class="info">한국경제</td>
+												<td class="date"> 2025.10.20 09:14</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0005265040&office_id=008&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹-양영재단, 대전서 5회 '미래 과학캠프' 개최</a>
+													
+												</td>
+												<td class="info">머니투데이</td>
+												<td class="date"> 2025.10.20 08:41</td>
+											</tr>
+						
+						
+ 					
+ 						
+
+						
+						
+											<tr  class="hide_news none">
+												<td class="title">
+													<a href="/item/news_read.naver?article_id=0002544064&office_id=016&code=000070&page=3&sm=" class="tit" onClick="clickcr(this,'stn.nbdyclustsub','','',event);" target=_top><span class="ico_reply"></span>삼양그룹, 양영재단과 &lsquo;2025 미래 과학캠프&rsquo; 성료</a>
+													
+												</td>
+												<td class="info">헤럴드경제</td>
+												<td class="date"> 2025.10.20 08:39</td>
+											</tr>
+						
+						
+										</tbody>
+									</table>
+									
+									<div class="link_area">
+										<a href="#" class="_moreBtn" onClick="toggleList(this, '0160002544345'); return false;" data-count="5">관련뉴스 <em>5</em>건 더보기<span class="ico_down"></span></a>
+									</div>																	
+									
+								</td>
+							</tr>
+						
+ 					
+					 					
+ 				
+				</tbody>
+			</table>
+ 						
+			<!--- 종목뉴스 끝--->
+			<!--- 페이지 네비게이션 시작--->
+			
+			<table summary="페이지 네비게이션 리스트" class="Nnavi" align="center">
+				<caption>페이지 네비게이션</caption>
+				<tr>
+					
+						<td class="pgLL">
+				<a href="/item/news_news.naver?code=000070&amp;page=1&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>
+				<img src="https://ssl.pstatic.net/static/n/cmn/bu_pgarLL.gif" width="7" height="5" alt="">맨앞
+				</a>
+				</td>
+
+		                
+		                <td>
+				<a href="/item/news_news.naver?code=000070&amp;page=1&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>1</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=2&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>2</a>
+				</td>
+<td class="on">
+				<a href="/item/news_news.naver?code=000070&amp;page=3&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>3</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=4&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>4</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=5&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>5</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=6&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>6</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=7&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>7</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=8&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>8</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=9&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>9</a>
+				</td>
+<td>
+				<a href="/item/news_news.naver?code=000070&amp;page=10&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>10</a>
+				</td>
+
+		                <td class="pgR">
+				<a href="/item/news_news.naver?code=000070&amp;page=11&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>
+				다음<img src="https://ssl.pstatic.net/static/n/cmn/bu_pgarR.gif" width="3" height="5" alt="" border="0">
+				</a>
+				</td>
+
+		                <td class="pgRR">
+				<a href="/item/news_news.naver?code=000070&amp;page=73&amp;clusterId="  onclick=clickcr(this,'stn.npag','','',event);>맨뒤
+				<img src="https://ssl.pstatic.net/static/n/cmn/bu_pgarRR.gif" width="8" height="5" alt="" border="0">
+				</a>
+				</td>
+
+		            
+				</tr>
+			</table>
+			
+
+
+	<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/js/ntm.js"></script>
+	<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20251111183746/js/nLog.js"></script>
+    <script type="text/javascript">
+        ;(function(){
+            var eventType = "onpageshow" in window ? "pageshow" : "load";
+            jindo.$Fn(function(){
+                lcs_do();
+            }).attach(window, eventType);
+        })();
+	</script>	
+
+
+<script type="text/javascript">
+	jindo.$Fn(function(){
+		parentHeightResize();
+
+		// _replaceNewsLink class 하위의 a 태그 조회 후 redirect
+		jindo.$$("._replaceNewsLink a").forEach(function(ele){
+			var urls = ele.href.split("?");
+			if (urls[0].indexOf("/news_read.naver") > 0 || urls[0].indexOf("/newsRead.naver") > 0) {
+				var param = jindo.$S(urls[1]).parseString();
+				var oid = param.office_id ? param.office_id : param.officeId;
+				var aid = param.article_id ? param.article_id : param.articleId;
+
+				ele.target = "_blank";
+				ele.href = jindo.$S("https://n.news.naver.com/mnews/article/%s/%s").format(oid, aid);
+			}
+		});
+
+	}).attach(window, 'load');
+</script>
+<script>
+	var targetWindow = window.top;
+	var targetOrigin = location.protocol+'//'+location.host;
+
+	function parentHeightResize(height) {
+		window.scrollTo(0, 0);
+		targetWindow.postMessage({
+			"type":"syncHeight",
+			"height": (height) ? height : document.body.offsetHeight
+		}, targetOrigin);
+	}
+
+	function parentScrollTo(to) {
+		targetWindow.postMessage({
+			"type":"syncScrollTo",
+			"to": to
+		}, targetOrigin);
+	}
+
+	// iframe의 사이즈가 갱신되기 위해서 dom load되기전 300으로 먼저 수정
+	parentHeightResize(300);
+</script>
+</body>
