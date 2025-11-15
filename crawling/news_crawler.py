@@ -230,13 +230,11 @@ def _parse_naver_news_html(html: str) -> Dict[str, str]:
     return {"title": title, "content": content}
 
 
-def fetch_article_detail(session: requests.Session, url: str) -> Dict[str, Any] | None:
+def fetch_article_detail(session, url: str) -> dict | None:
     """
     네이버 금융 기사 상세 페이지 크롤링
-
-    - 1차: finance wrapper(.articleSubject / .articleCont) 시도
-    - 2차: 일반 뉴스 페이지(_parse_naver_news_html) 시도
-    - 제목이 전혀 안 나오면만 None, 본문이 짧아도 일단 살림
+    - 금융 wrapper(.articleSubject, .articleCont) 우선 시도
+    - 실패/너무 짧으면 통합 뉴스/모바일 구조(_parse_naver_news_html)로 재시도
     """
     logger.info(f"Requesting article page: {url}")
     try:
@@ -249,43 +247,66 @@ def fetch_article_detail(session: requests.Session, url: str) -> Dict[str, Any] 
     html = resp.text
     soup = BeautifulSoup(html, "html.parser")
 
-    # ---- 1차: finance wrapper 스타일 (.articleSubject / .articleCont) ----
+    # ----------------------------
+    # 1차: 네이버 금융 wrapper 스타일 (.articleSubject, .articleCont)
+    # ----------------------------
     title_elem = soup.select_one(".articleSubject")
-    title = title_elem.get_text(strip=True) if title_elem else ""
-
     content_elem = soup.select_one(".articleCont")
+
+    title = title_elem.get_text(strip=True) if title_elem else ""
     content = ""
     if content_elem:
         for tag in content_elem(["script", "style"]):
             tag.decompose()
         content = content_elem.get_text(" ", strip=True)
 
-    # ---- 2차: 일반 뉴스 페이지 패턴 시도 ----
-    if not title or not content:
+    # ----------------------------
+    # 2차: 통합 뉴스/모바일 등의 공통 파서로 재시도
+    #  - news.naver.com 의 #dic_area, #newsct_article 등
+    # ----------------------------
+    if len(title) < 5 or len(content) < 50:
         parsed = _parse_naver_news_html(html)
-        if not title and parsed.get("title"):
+        if parsed.get("title"):
             title = parsed["title"]
-        if not content and parsed.get("content"):
+        if parsed.get("content"):
             content = parsed["content"]
 
-    # ---- 날짜 파싱 ----
+    # ----------------------------
+    # 날짜 파싱
+    # ----------------------------
+    published_at = datetime.now()
+
+    # 금융 wrapper 쪽 날짜
     date_elem = soup.select_one(".article_info .dates")
+    date_text = ""
     if date_elem:
         date_text = date_elem.get_text(strip=True)
+
+    # 통합 뉴스 쪽 날짜 (news.naver.com)
+    if not date_text:
+        time_el = soup.select_one(".media_end_head_info_datestamp_time")
+        if time_el:
+            date_text = time_el.get_text(strip=True)
+
+    if date_text:
         published_at = _parse_date(date_text)
-    else:
-        published_at = datetime.now()
 
-    # ---- 유효성 체크 (제목이 전혀 없으면만 버린다) ----
-    if not title:
-        logger.warning(f"Failed to parse title from article page: {url}")
-        return None
-
-    # 본문이 짧으면 경고만 띄우고 살려둔다
-    if len(content) < 50:
+    # ----------------------------
+    # 최종 유효성 체크
+    # ----------------------------
+    if not title or len(content) < 50:
         logger.warning(
-            f"Article content seems short ({len(content)} chars): {url}"
+            f"Article seems invalid (title/content too short): {url} "
+            f"(title_len={len(title)}, content_len={len(content)})"
         )
+        # 디버그용으로 HTML 저장해서 나중에 구조 살펴보고 싶으면 주석 해제
+        # try:
+        #     fname = DEBUG_DIR / ("article_" + re.sub(r'[^0-9A-Za-z]+', '_', url) + ".html")
+        #     fname.write_text(html, encoding="utf-8")
+        #     logger.info(f"Saved debug article HTML to: {fname}")
+        # except Exception as e:
+        #     logger.error(f"Failed to save article HTML debug: {e}")
+        return None
 
     return {
         "title": title,

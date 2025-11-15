@@ -1,1 +1,98 @@
-{}
+{
+  "동화약품": [
+    {
+      "title": "“50대 임원 OUT” 41세 동화약품 오너家 대표 오르자 ‘세대교체’...",
+      "content": "",
+      "url": "https://finance.naver.com/item/news_read.naver?article_id=0001122485&office_id=366&code=000020&page=1&sm=",
+      "published_at": "2025-11-15T19:40:50.260737",
+      "source": "naver_finance_list",
+      "company_name": "동화약품",
+      "company_code": "000020",
+      "market": "J"
+    },
+    {
+      "title": "하루 6만명씩 몰리는 이곳..베트남 '핫플'된 K유통",
+      "content": "",
+      "url": "https://finance.naver.com/item/news_read.naver?article_id=0005433658&office_id=014&code=000020&page=1&sm=",
+      "published_at": "2025-11-15T19:40:50.260752",
+      "source": "naver_finance_list",
+      "company_name": "동화약품",
+      "company_code": "000020",
+      "market": "J"
+    },
+    {
+      "title": "GS25서 떡볶이 먹고 롯데몰서 쇼핑… 베트남 점령한 K유통",
+      "content": "",
+      "url": "https://finance.naver.com/item/news_read.naver?article_id=0005433530&office_id=014&code=000020&page=1&sm=",
+      "published_at": "2025-11-15T19:40:50.260756",
+      "source": "naver_finance_list",
+      "company_name": "동화약품",
+      "company_code": "000020",
+      "market": "J"
+    }
+  ],
+  "경방": [
+    {
+      "title": "경방 타임스퀘어, 초대형 크리스마스 트리 공개",
+      "content": "",
+      "url": "https://finance.naver.com/item/news_read.naver?article_id=0001233527&office_id=382&code=000050&page=1&sm=",
+      "published_at": "2025-11-15T19:40:50.962919",
+      "source": "naver_finance_list",
+      "company_name": "경방",
+      "company_code": "000050",
+      "market": "J"
+    },
+    {
+      "title": "자사주 EB 막히자 일신방직·경방 '자사주 맞교환'",
+      "content": "",
+      "url": "https://finance.naver.com/item/news_read.naver?article_id=0000975928&office_id=031&code=000050&page=1&sm=",
+      "published_at": "2025-11-15T19:40:50.962933",
+      "source": "naver_finance_list",
+      "company_name": "경방",
+      "company_code": "000050",
+      "market": "J"
+    },
+    {
+      "title": "타임스트림 신림, MZ세대 겨냥 콘텐츠 개편",
+      "content": "",
+      "url": "https://finance.naver.com/item/news_read.naver?article_id=0006137508&office_id=018&code=000050&page=1&sm=",
+      "published_at": "2025-11-15T19:40:50.962936",
+      "source": "naver_finance_list",
+      "company_name": "경방",
+      "company_code": "000050",
+      "market": "J"
+    }
+  ],
+  "삼양홀딩스": [
+    {
+      "title": "'4년 만에 다시 분할' 김경진호 삼양바이오팜, 무엇이 달라졌나",
+      "content": "",
+      "url": "https://finance.naver.com/item/news_read.naver?article_id=0006163897&office_id=018&code=000070&page=1&sm=",
+      "published_at": "2025-11-15T19:40:51.698453",
+      "source": "naver_finance_list",
+      "company_name": "삼양홀딩스",
+      "company_code": "000070",
+      "market": "J"
+    },
+    {
+      "title": "주병기 “지속 가능한 자본주의로 전환해야”",
+      "content": "",
+      "url": "https://finance.naver.com/item/news_read.naver?article_id=0001814434&office_id=005&code=000070&page=1&sm=",
+      "published_at": "2025-11-15T19:40:51.698473",
+      "source": "naver_finance_list",
+      "company_name": "삼양홀딩스",
+      "company_code": "000070",
+      "market": "J"
+    },
+    {
+      "title": "삼양엔씨켐, 3Q 영업익 41억원.. 전년 동기 대비 50%↑",
+      "content": "",
+      "url": "https://finance.naver.com/item/news_read.naver?article_id=0005434037&office_id=014&code=000070&page=1&sm=",
+      "published_at": "2025-11-15T19:40:51.698475",
+      "source": "naver_finance_list",
+      "company_name": "삼양홀딩스",
+      "company_code": "000070",
+      "market": "J"
+    }
+  ]
+}
