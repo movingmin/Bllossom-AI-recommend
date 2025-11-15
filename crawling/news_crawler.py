@@ -15,9 +15,6 @@ logger = logging.getLogger(__name__)
 # ---- 경로 상수 ----
 BASE_DIR = Path(__file__).resolve().parent
 DB_DIR = BASE_DIR / "db"
-DEBUG_DIR = BASE_DIR / "debug"
-
-DEBUG_DIR.mkdir(parents=True, exist_ok=True)
 
 # ---- 시장 관련 상수 ----
 KOSPI_MARKET_KEY = "J"
@@ -25,7 +22,7 @@ KOSDAQ_MARKET_KEY = "U"
 
 N_KOSPI = 3   # 검색할 코스피 종목 개수
 N_KOSDAQ = 0  # 검색할 코스닥 종목 개수
-N_NEWS_PER_STOCK = 3  # 검색할 종목당 뉴스 개수
+N_NEWS_PER_STOCK = 10  # 검색할 종목당 뉴스 개수
 
 REQUEST_TIMEOUT = 10
 
@@ -216,6 +213,7 @@ def _parse_naver_news_html(html: str) -> Dict[str, str]:
     # 본문 후보들
     content_el = (
         soup.select_one("article#dic_area")           # 통합 뉴스
+        or soup.select_one("#dic_area")               # 혹시 태그가 바뀐 경우
         or soup.select_one("div#newsct_article")      # 통합 뉴스 다른 케이스
         or soup.select_one("div#articleBodyContents") # 예전 스타일
         or soup.select_one("div.article_view")        # 일부 언론사 자체 템플릿
@@ -233,10 +231,15 @@ def _parse_naver_news_html(html: str) -> Dict[str, str]:
 def fetch_article_detail(session, url: str) -> dict | None:
     """
     네이버 금융 기사 상세 페이지 크롤링
-    - 금융 wrapper(.articleSubject, .articleCont) 우선 시도
-    - 실패/너무 짧으면 통합 뉴스/모바일 구조(_parse_naver_news_html)로 재시도
+
+    1) finance.naver.com 의 wrapper 페이지를 요청
+    2) 그 안에서
+       - JS redirect (top.location.href='...')
+       - 또는 iframe(src)
+       를 찾아서 실제 news.naver.com 기사 URL을 얻음
+    3) 실제 기사 HTML을 _parse_naver_news_html()으로 파싱
     """
-    logger.info(f"Requesting article page: {url}")
+    logger.info(f"Requesting article page (wrapper): {url}")
     try:
         resp = session.get(url, timeout=REQUEST_TIMEOUT)
         resp.raise_for_status()
@@ -244,76 +247,128 @@ def fetch_article_detail(session, url: str) -> dict | None:
         logger.warning(f"Failed to fetch article page {url}: {e}")
         return None
 
-    html = resp.text
-    soup = BeautifulSoup(html, "html.parser")
+    wrapper_html = resp.text
+    wrapper_soup = BeautifulSoup(wrapper_html, "html.parser")
 
-    # ----------------------------
-    # 1차: 네이버 금융 wrapper 스타일 (.articleSubject, .articleCont)
-    # ----------------------------
-    title_elem = soup.select_one(".articleSubject")
-    content_elem = soup.select_one(".articleCont")
+    inner_html = None
+    inner_url = None
 
-    title = title_elem.get_text(strip=True) if title_elem else ""
-    content = ""
-    if content_elem:
-        for tag in content_elem(["script", "style"]):
-            tag.decompose()
-        content = content_elem.get_text(" ", strip=True)
+    # --------------------------------------------------
+    # 0) JS redirect (top.location.href='...') 처리
+    #    예) <SCRIPT>top.location.href='https://n.news.naver.com/...';</SCRIPT>
+    # --------------------------------------------------
+    redirect_url = None
+    for script in wrapper_soup.find_all("script"):
+        script_text = script.get_text() or ""
+        m = re.search(
+            r"top\.location\.href\s*=\s*['\"]([^'\"]+)['\"]",
+            script_text
+        )
+        if m:
+            redirect_url = m.group(1).strip()
+            break
 
-    # ----------------------------
-    # 2차: 통합 뉴스/모바일 등의 공통 파서로 재시도
-    #  - news.naver.com 의 #dic_area, #newsct_article 등
-    # ----------------------------
-    if len(title) < 5 or len(content) < 50:
-        parsed = _parse_naver_news_html(html)
-        if parsed.get("title"):
-            title = parsed["title"]
-        if parsed.get("content"):
-            content = parsed["content"]
+    if redirect_url:
+        # 프로토콜/도메인 보정
+        if redirect_url.startswith("//"):
+            inner_url = "https:" + redirect_url
+        elif redirect_url.startswith("/"):
+            inner_url = "https://news.naver.com" + redirect_url
+        elif redirect_url.startswith("http"):
+            inner_url = redirect_url
+        else:
+            inner_url = "https://news.naver.com/" + redirect_url.lstrip("/")
 
-    # ----------------------------
+        logger.info(f"Detected JS redirect to article: {inner_url}")
+        try:
+            inner_resp = session.get(inner_url, timeout=REQUEST_TIMEOUT)
+            inner_resp.raise_for_status()
+            inner_html = inner_resp.text
+        except Exception as e:
+            logger.warning(f"Failed to fetch redirected article {inner_url}: {e}")
+            inner_html = None
+
+    # --------------------------------------------------
+    # 1) JS redirect 못 찾았으면 iframe(news_frame) 시도 (구형 구조 대비)
+    # --------------------------------------------------
+    if inner_html is None:
+        iframe = (
+            wrapper_soup.select_one("iframe#news_frame")
+            or wrapper_soup.select_one("iframe[name='news_frame']")
+        )
+
+        if not iframe:
+            for tag in wrapper_soup.find_all("iframe"):
+                src = tag.get("src", "")
+                if "news.naver.com" in src or "n.news.naver.com" in src:
+                    iframe = tag
+                    break
+
+        if iframe and iframe.get("src"):
+            src = iframe["src"]
+
+            if src.startswith("//"):
+                inner_url = "https:" + src
+            elif src.startswith("/"):
+                inner_url = "https://news.naver.com" + src
+            elif src.startswith("http"):
+                inner_url = src
+            else:
+                inner_url = "https://news.naver.com/" + src.lstrip("/")
+
+            logger.info(f"Requesting article iframe: {inner_url}")
+            try:
+                inner_resp = session.get(inner_url, timeout=REQUEST_TIMEOUT)
+                inner_resp.raise_for_status()
+                inner_html = inner_resp.text
+            except Exception as e:
+                logger.warning(f"Failed to fetch iframe page {inner_url}: {e}")
+                inner_html = None
+
+    # --------------------------------------------------
+    # 2) 실제 파싱에 사용할 HTML 선택
+    # --------------------------------------------------
+    target_html = inner_html or wrapper_html
+    target_soup = BeautifulSoup(target_html, "html.parser")
+
+    parsed = _parse_naver_news_html(target_html)
+    title = parsed.get("title", "") or ""
+    content = parsed.get("content", "") or ""
+
     # 날짜 파싱
-    # ----------------------------
     published_at = datetime.now()
-
-    # 금융 wrapper 쪽 날짜
-    date_elem = soup.select_one(".article_info .dates")
     date_text = ""
-    if date_elem:
-        date_text = date_elem.get_text(strip=True)
 
-    # 통합 뉴스 쪽 날짜 (news.naver.com)
+    # news.naver.com 스타일 날짜
+    time_el = target_soup.select_one(".media_end_head_info_datestamp_time")
+    if time_el:
+        date_text = time_el.get_text(strip=True)
+
+    # 없으면 finance wrapper 스타일 날짜
     if not date_text:
-        time_el = soup.select_one(".media_end_head_info_datestamp_time")
-        if time_el:
-            date_text = time_el.get_text(strip=True)
+        date_el = wrapper_soup.select_one(".article_info .dates")
+        if date_el:
+            date_text = date_el.get_text(strip=True)
 
     if date_text:
         published_at = _parse_date(date_text)
 
-    # ----------------------------
-    # 최종 유효성 체크
-    # ----------------------------
+    # --------------------------------------------------
+    # 3) 최종 유효성 체크 + 디버그 저장
+    # --------------------------------------------------
     if not title or len(content) < 50:
         logger.warning(
             f"Article seems invalid (title/content too short): {url} "
             f"(title_len={len(title)}, content_len={len(content)})"
         )
-        # 디버그용으로 HTML 저장해서 나중에 구조 살펴보고 싶으면 주석 해제
-        # try:
-        #     fname = DEBUG_DIR / ("article_" + re.sub(r'[^0-9A-Za-z]+', '_', url) + ".html")
-        #     fname.write_text(html, encoding="utf-8")
-        #     logger.info(f"Saved debug article HTML to: {fname}")
-        # except Exception as e:
-        #     logger.error(f"Failed to save article HTML debug: {e}")
+
         return None
 
     return {
         "title": title,
         "content": content,
-        "url": url,
-        "published_at": published_at.isoformat(),
-        "source": "naver_finance",
+        "url": inner_url or url,
+        "published_at": published_at.isoformat(),       
     }
 
 
@@ -345,14 +400,6 @@ def fetch_company_news(
         except requests.RequestException as e:
             logger.error(f"Request failed for {name}({code}) page {page}: {e}")
             break
-
-        # 🔍 디버그용 HTML 저장
-        debug_path = DEBUG_DIR / f"{code}_page{page}.html"
-        try:
-            debug_path.write_text(resp.text, encoding="utf-8")
-            logger.info(f"Saved debug HTML to: {debug_path}")
-        except Exception as e:
-            logger.error(f"Failed to save debug HTML for {code} page {page}: {e}")
 
         # 리스트 페이지에서 제목+URL(+날짜) 추출
         rough_list = parse_news_list_from_list_page(
