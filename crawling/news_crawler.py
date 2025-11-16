@@ -20,13 +20,13 @@ DB_DIR = BASE_DIR / "db"
 KOSPI_MARKET_KEY = "J"
 KOSDAQ_MARKET_KEY = "U"
 
-N_KOSPI = 3   # 검색할 코스피 종목 개수
-N_KOSDAQ = 0  # 검색할 코스닥 종목 개수
-N_NEWS_PER_STOCK = 10  # 검색할 종목당 뉴스 개수
+N_KOSPI = 1000   # 검색할 코스피 종목 개수 (최대 1000개)
+N_KOSDAQ = 1000  # 검색할 코스닥 종목 개수 (최대 1000개)
+N_NEWS_PER_STOCK = 50  # 검색할 종목당 뉴스 개수
 
 REQUEST_TIMEOUT = 10
 
-# ✅ 네이버 증권 "뉴스·공시" 탭에서 실제 뉴스 리스트를 뿌리는 iframe 주소
+# 네이버 증권 "뉴스·공시" 탭에서 실제 뉴스 리스트를 뿌리는 iframe 주소
 BASE_LIST_URL = (
     "https://finance.naver.com/item/news_news.naver"
     "?code={code}&page={page}&clusterId="

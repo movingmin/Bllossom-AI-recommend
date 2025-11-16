@@ -7,7 +7,10 @@
       "published_at": "2025-11-16T22:49:49.599440",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999071359634399,
+      "sentiment_point": 0
     },
     {
       "title": "하루 6만명씩 몰리는 이곳..베트남 '핫플'된 K유통",
@@ -16,7 +19,10 @@
       "published_at": "2025-11-16T22:49:50.130746",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9996076226234436,
+      "sentiment_point": 0
     },
     {
       "title": "GS25서 떡볶이 먹고 롯데몰서 쇼핑… 베트남 점령한 K유통",
@@ -25,7 +31,10 @@
       "published_at": "2025-11-16T22:49:50.592563",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9988521337509155,
+      "sentiment_point": 0
     },
     {
       "title": "동화약품, 이인덕 부사장 후임에 성경수 낙점받나",
@@ -34,7 +43,10 @@
       "published_at": "2025-11-16T22:49:51.038782",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998742341995239,
+      "sentiment_point": 0
     },
     {
       "title": "다이어트 유산균 '비에날씬'도 들인 GS25, MZ '이너뷰티' 정조준",
@@ -43,7 +55,10 @@
       "published_at": "2025-11-16T22:49:51.409410",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999208450317383,
+      "sentiment_point": 0
     },
     {
       "title": "[단독] 동화약품, 윤인호 첫 임원인사 '칼바람'…이인덕 부사장 등 중견급 임원 짐쌌다",
@@ -52,7 +67,10 @@
       "published_at": "2025-11-16T22:49:51.894638",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998811483383179,
+      "sentiment_point": 0
     },
     {
       "title": "'AI 신약개발' 민간에서 정부 주도로 패러다임 바뀐다",
@@ -61,7 +79,10 @@
       "published_at": "2025-11-16T22:49:52.378866",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9997106194496155,
+      "sentiment_point": 0
     },
     {
       "title": "\"난방에 눈은 뻑뻑, 기온은 뚝\"…환절기 상비약 수요↑",
@@ -70,7 +91,10 @@
       "published_at": "2025-11-16T22:49:52.909307",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9997557997703552,
+      "sentiment_point": 0
     },
     {
       "title": "AI 신약개발 훈풍… 기술·임상성과로 주목받는 K-바이오",
@@ -79,7 +103,10 @@
       "published_at": "2025-11-16T22:49:53.378965",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.8947931528091431,
+      "sentiment_point": 1
     },
     {
       "title": "최장수 기네스북만 4개, 100년 넘은 '보물' 가득한 동화약품 신사옥 가보니",
@@ -88,7 +115,10 @@
       "published_at": "2025-11-16T22:49:53.763082",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998974800109863,
+      "sentiment_point": 0
     },
     {
       "title": "가을 한파 겹친 환절기 시즌…\"안구건조증·감기·비염 등 대비해야\"",
@@ -97,7 +127,10 @@
       "published_at": "2025-11-16T22:49:54.349094",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.999914288520813,
+      "sentiment_point": 0
     },
     {
       "title": "[르포] 연어 DNA로 피부 재생 주사제 개발…매출 5000억원 예상",
@@ -106,7 +139,10 @@
       "published_at": "2025-11-16T22:49:54.788885",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.8309133648872375,
+      "sentiment_point": 0
     },
     {
       "title": "심창구 서울약대 명예교수, 제7회 윤광열 약학공로상 수상",
@@ -115,7 +151,10 @@
       "published_at": "2025-11-16T22:49:55.213473",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9830375909805298,
+      "sentiment_point": 1
     },
     {
       "title": "부채표 가송재단-대한약학회, 윤광열 약학공로상 수상자에 심창구 서울대 명예교수 선정",
@@ -124,7 +163,10 @@
       "published_at": "2025-11-16T22:49:55.722438",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9977661371231079,
+      "sentiment_point": 0
     },
     {
       "title": "윤광열 약학공로상에 심창구 서울대 약대 명예교수",
@@ -133,7 +175,10 @@
       "published_at": "2025-11-16T22:49:56.291197",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998095631599426,
+      "sentiment_point": 0
     },
     {
       "title": "심창구 서울대 약대 명예교수, '제7회 윤광열 약학공로상' 수상",
@@ -142,7 +187,10 @@
       "published_at": "2025-11-16T22:49:56.810953",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9956493973731995,
+      "sentiment_point": 1
     },
     {
       "title": "제7회 '윤광열 약학공로상' 수상자에 심창구 서울대 명예교수",
@@ -151,7 +199,10 @@
       "published_at": "2025-11-16T22:49:57.300907",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.756706953048706,
+      "sentiment_point": 0
     },
     {
       "title": "[바이오스냅] GC녹십자의료재단, 인페코와 병리 검사 자동화 협력",
@@ -160,7 +211,10 @@
       "published_at": "2025-11-16T22:49:57.789923",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9808911681175232,
+      "sentiment_point": 0
     },
     {
       "title": "'젤·샷으로 챙긴다'…MZ세대 '이너뷰티' 취향 저격한 유통가",
@@ -169,7 +223,10 @@
       "published_at": "2025-11-16T22:49:58.292747",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999089241027832,
+      "sentiment_point": 0
     },
     {
       "title": "“덩치 커졌지만 수익성 문제 대두”…동화약품의 돌파구는?",
@@ -178,7 +235,10 @@
       "published_at": "2025-11-16T22:49:58.798760",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9579641819000244,
+      "sentiment_point": 0
     },
     {
       "title": "\"이런 감기약 처음\" 매출 300억 넘더니…설탕·카페인 뺀 약도 나왔다",
@@ -187,7 +247,10 @@
       "published_at": "2025-11-16T22:49:59.278046",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "negative",
+      "model_confidence": 0.4633491337299347,
+      "sentiment_point": -1
     },
     {
       "title": "“큰 일교차와 쌀쌀해진 날씨 탓” 제약업계, ‘감기약’ 경쟁 본격화",
@@ -196,7 +259,10 @@
       "published_at": "2025-11-16T22:49:59.867520",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.8446236848831177,
+      "sentiment_point": 0
     },
     {
       "title": "너도나도 건기식 시장 진출, 유통가 휩쓴 '헬시 플레저' 바람 [트렌드경제]",
@@ -205,7 +271,10 @@
       "published_at": "2025-11-16T22:50:00.385515",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9993337988853455,
+      "sentiment_point": 1
     },
     {
       "title": "\"따뜻하게 타 마셔요\"⋯환절기 감기약 새 트렌드",
@@ -214,7 +283,10 @@
       "published_at": "2025-11-16T22:50:00.887629",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9997623562812805,
+      "sentiment_point": 0
     },
     {
       "title": "편의점 건기식 매출 한 달 만에 5배 '껑충'…\"주 소비층은 30대\"",
@@ -223,7 +295,10 @@
       "published_at": "2025-11-16T22:50:01.839798",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.8920742869377136,
+      "sentiment_point": 1
     },
     {
       "title": "“5000원으로 건강 챙긴다고?”…MZ세대, 여기에 몰린 이유",
@@ -232,7 +307,10 @@
       "published_at": "2025-11-16T22:50:02.477814",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999219179153442,
+      "sentiment_point": 0
     },
     {
       "title": "SK렌터카, 제주 로컬 기업 ‘한울앤제주’와 신제품 출시 기념 이벤트 진행",
@@ -241,7 +319,10 @@
       "published_at": "2025-11-16T22:50:03.153001",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.995689332485199,
+      "sentiment_point": 1
     },
     {
       "title": "닭강정·참치김밥으로 공략…\"맛템 가득\" 한국 편의점, 하와이까지 점령 나선다",
@@ -250,7 +331,10 @@
       "published_at": "2025-11-16T22:50:03.936297",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9982540011405945,
+      "sentiment_point": 1
     },
     {
       "title": "석달새 매출 19배 뛰었다…편의점·다이소에서 불티나게 팔린 것은",
@@ -259,7 +343,10 @@
       "published_at": "2025-11-16T22:50:04.374115",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.6330744028091431,
+      "sentiment_point": 0
     },
     {
       "title": "석달새 매출 19배…'소포장 건기식' 잘 나가네",
@@ -268,7 +355,10 @@
       "published_at": "2025-11-16T22:50:04.865993",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9961699843406677,
+      "sentiment_point": 1
     },
     {
       "title": "맛있고 간편한 섭취로 환절기 감기예방",
@@ -277,7 +367,10 @@
       "published_at": "2025-11-16T22:50:05.423747",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9976962208747864,
+      "sentiment_point": 0
     },
     {
       "title": "\"추석 연휴 감기 걱정 끝\"...맛있는 처방전 내놓는 제약사들",
@@ -286,7 +379,10 @@
       "published_at": "2025-11-16T22:50:05.921713",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998794794082642,
+      "sentiment_point": 0
     },
     {
       "title": "[어바웃 C] '영업통 리더십' 휴온스메디텍 하창우 대표, 해외매출·실적개선 시험대",
@@ -295,7 +391,10 @@
       "published_at": "2025-11-16T22:50:06.455381",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9691041111946106,
+      "sentiment_point": 0
     },
     {
       "title": "성분뷰티가 대세…날개 단 '제약 원료 화장품'[또 한번의 변신, K-뷰티②]",
@@ -304,7 +403,10 @@
       "published_at": "2025-11-16T22:50:07.022157",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9863550066947937,
+      "sentiment_point": 0
     },
     {
       "title": "휴온스메디텍, 하창우 신임 대표 선임",
@@ -313,7 +415,10 @@
       "published_at": "2025-11-16T22:50:07.648551",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9996022582054138,
+      "sentiment_point": 0
     },
     {
       "title": "동화약품, '가송 예술상' 시상식 개최…대상 '바람의 노래' 선정",
@@ -322,7 +427,10 @@
       "published_at": "2025-11-16T22:50:08.169834",
       "company_name": "동화약품",
       "company_code": "000020",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998490810394287,
+      "sentiment_point": 0
     }
   ],
   "경방": [
@@ -333,7 +441,10 @@
       "published_at": "2025-11-16T22:50:08.947984",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9248047471046448,
+      "sentiment_point": 0
     },
     {
       "title": "자사주 EB 막히자 일신방직·경방 '자사주 맞교환'",
@@ -342,7 +453,10 @@
       "published_at": "2025-11-16T22:50:09.411618",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9925133585929871,
+      "sentiment_point": 0
     },
     {
       "title": "타임스트림 신림, MZ세대 겨냥 콘텐츠 개편",
@@ -351,7 +465,10 @@
       "published_at": "2025-11-16T22:50:09.915480",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999129772186279,
+      "sentiment_point": 0
     },
     {
       "title": "\"긴 연휴, 쇼핑하며 놀자\"…유통업계, 다채로운 체험 콘텐츠 '눈길'",
@@ -360,7 +477,10 @@
       "published_at": "2025-11-16T22:50:10.413499",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999185800552368,
+      "sentiment_point": 0
     },
     {
       "title": "경방 타임스퀘어, ‘뮤직스퀘어’ 실시",
@@ -369,7 +489,10 @@
       "published_at": "2025-11-16T22:50:10.813093",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999111890792847,
+      "sentiment_point": 0
     },
     {
       "title": "타임스퀘어, 20~21일 고객 대상 라이브 공연 '뮤직스퀘어' 개최",
@@ -378,7 +501,10 @@
       "published_at": "2025-11-16T22:50:11.206812",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999164342880249,
+      "sentiment_point": 0
     },
     {
       "title": "타임스퀘어, '뮤직스퀘어' 공연 선봬…\"10CM, 소란 등 출연\"",
@@ -387,7 +513,10 @@
       "published_at": "2025-11-16T22:50:11.721030",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999099969863892,
+      "sentiment_point": 0
     },
     {
       "title": "코람코자산신탁, 홍대입구역 코앞 ‘케이스퀘어 홍대’ 매각 추진",
@@ -396,7 +525,10 @@
       "published_at": "2025-11-16T22:50:12.199583",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999140501022339,
+      "sentiment_point": 0
     },
     {
       "title": "타임스퀘어, ‘몰캉스족’ 겨냥 여름 팝업 콘텐츠 강화",
@@ -405,7 +537,10 @@
       "published_at": "2025-11-16T22:50:12.595960",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999157190322876,
+      "sentiment_point": 0
     },
     {
       "title": "\"몰캉스족 겨냥\"…경방 타임스퀘어, 여름 팝업 콘텐츠 선봬",
@@ -414,7 +549,10 @@
       "published_at": "2025-11-16T22:50:13.106155",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999105930328369,
+      "sentiment_point": 0
     },
     {
       "title": "경방 타임스퀘어, 역대급 시즌오프 세일… 35개 브랜드 참여·최대 50% 할인",
@@ -423,7 +561,10 @@
       "published_at": "2025-11-16T22:50:13.512622",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999182224273682,
+      "sentiment_point": 0
     },
     {
       "title": "경방 타임스퀘어, 시즌오프 세일…최대 50% 할인",
@@ -432,7 +573,10 @@
       "published_at": "2025-11-16T22:50:13.996581",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999145269393921,
+      "sentiment_point": 0
     },
     {
       "title": "타임스퀘어, 시즌오프 세일…최대 50% 할인",
@@ -441,7 +585,10 @@
       "published_at": "2025-11-16T22:50:14.418821",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999169111251831,
+      "sentiment_point": 0
     },
     {
       "title": "“연간 300회 팝업 개최” 경방 타임스퀘어, ‘콘텐츠 IP 팝업 맛집’ 인증",
@@ -450,7 +597,10 @@
       "published_at": "2025-11-16T22:50:14.829033",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999088048934937,
+      "sentiment_point": 0
     },
     {
       "title": "경방 타임스퀘어, 1년간 300회 팝업 개최…누적 방문객 3천만명 달성",
@@ -459,7 +609,10 @@
       "published_at": "2025-11-16T22:50:15.380719",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999089241027832,
+      "sentiment_point": 0
     },
     {
       "title": "경방 타임스퀘어, 1년 간 300건 팝업…누적 방문객 3000만 명",
@@ -468,7 +621,10 @@
       "published_at": "2025-11-16T22:50:15.925043",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999017715454102,
+      "sentiment_point": 0
     },
     {
       "title": "[서울데이터랩]한세엠케이 17.06% 급등…실시간 상승률 1위",
@@ -477,7 +633,10 @@
       "published_at": "2025-11-16T22:50:16.530093",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9998542070388794,
+      "sentiment_point": 1
     },
     {
       "title": "[서울데이터랩]금일 코스피 거래량 1위 대영포장 거래대금 481억 돌파",
@@ -486,7 +645,10 @@
       "published_at": "2025-11-16T22:50:16.921344",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9190279841423035,
+      "sentiment_point": 1
     },
     {
       "title": "주말 사이 '金→韓→金' 격동…김문수株 상한가, 한덕수株 하한가 직행",
@@ -495,7 +657,10 @@
       "published_at": "2025-11-16T22:50:17.351209",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.912589430809021,
+      "sentiment_point": 0
     },
     {
       "title": "‘이재명 아들 관련주’까지 테마주에 묶여 상한가",
@@ -504,7 +669,10 @@
       "published_at": "2025-11-16T22:50:17.782937",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.7503781318664551,
+      "sentiment_point": 1
     },
     {
       "title": "\"또 만들어 낸 정치 테마주\"…'이재명 아들 관련주'까지 등장",
@@ -513,7 +681,10 @@
       "published_at": "2025-11-16T22:50:18.305503",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.998588502407074,
+      "sentiment_point": 0
     },
     {
       "title": "[마켓뷰] 약보합 마감 코스피… 정치 테마주만 들썩",
@@ -522,7 +693,10 @@
       "published_at": "2025-11-16T22:50:18.791604",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998905658721924,
+      "sentiment_point": 0
     },
     {
       "title": "[서울데이터랩]마감 직후 인기 검색 종목 20選",
@@ -531,7 +705,10 @@
       "published_at": "2025-11-16T22:50:19.232566",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998687505722046,
+      "sentiment_point": 0
     },
     {
       "title": "[서울데이터랩]평화홀딩스 16.95% 급등…금일 증시 상승률 1위로 마감",
@@ -540,7 +717,10 @@
       "published_at": "2025-11-16T22:50:19.707615",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.99983811378479,
+      "sentiment_point": 1
     },
     {
       "title": "이재명 테마주 놓쳤어? 그럼 아들 테마주라도…경방, 상한가 목전",
@@ -549,7 +729,10 @@
       "published_at": "2025-11-16T22:50:20.137156",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9244484305381775,
+      "sentiment_point": 0
     },
     {
       "title": "[서울데이터랩]‘평화홀딩스’ 29.86% 폭등…금일 증시 상승률 1위로 마감",
@@ -558,7 +741,10 @@
       "published_at": "2025-11-16T22:50:20.532252",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "negative",
+      "model_confidence": 0.9904593229293823,
+      "sentiment_point": -1
     },
     {
       "title": "타임스퀘어, 5월 가정의 달 이벤트 ‘풍성’",
@@ -567,7 +753,10 @@
       "published_at": "2025-11-16T22:50:20.894649",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999245405197144,
+      "sentiment_point": 0
     },
     {
       "title": "[서울데이터랩]일정실업 29.93% 상한가…금일 증시 상승률 1위로 마감",
@@ -576,7 +765,10 @@
       "published_at": "2025-11-16T22:50:21.407879",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9997314810752869,
+      "sentiment_point": 1
     },
     {
       "title": "경방 타임스퀘어, 어린이날 맞이 쿵야 레스토랑즈 팝업 운영",
@@ -585,7 +777,10 @@
       "published_at": "2025-11-16T22:50:21.824910",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999232292175293,
+      "sentiment_point": 0
     },
     {
       "title": "타임스퀘어, 국내 최초 '조던 특화' 나이키 매장 오픈",
@@ -594,7 +789,10 @@
       "published_at": "2025-11-16T22:50:22.258360",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9930237531661987,
+      "sentiment_point": 0
     },
     {
       "title": "경방 타임스퀘어, 봄맞이 릴레이 패션 팝업 선봬",
@@ -603,7 +801,10 @@
       "published_at": "2025-11-16T22:50:22.695118",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999196529388428,
+      "sentiment_point": 0
     },
     {
       "title": "“‘에이티즈’ 팬 모여라” 경방 타임스퀘어, 팝업스토어 ‘애니티즈 인 트레저’ 운영",
@@ -612,7 +813,10 @@
       "published_at": "2025-11-16T22:50:23.043651",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998877048492432,
+      "sentiment_point": 0
     },
     {
       "title": "기업 공시[3월 13일]",
@@ -621,7 +825,10 @@
       "published_at": "2025-11-16T22:50:23.478867",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.999828577041626,
+      "sentiment_point": 0
     },
     {
       "title": "경방, 주당 150원 결산배당 결정",
@@ -630,7 +837,10 @@
       "published_at": "2025-11-16T22:50:24.098112",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9998737573623657,
+      "sentiment_point": 1
     },
     {
       "title": "경방, 주당 150원 현금배당 결정",
@@ -639,7 +849,10 @@
       "published_at": "2025-11-16T22:50:24.612371",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.999868631362915,
+      "sentiment_point": 1
     },
     {
       "title": "경방 타임스퀘어, ‘인피니트’ 팝업스토어 운영",
@@ -648,7 +861,10 @@
       "published_at": "2025-11-16T22:50:25.152234",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999043941497803,
+      "sentiment_point": 0
     },
     {
       "title": "경방 타임스퀘어, ‘신학기 프로모션’ 실시",
@@ -657,7 +873,10 @@
       "published_at": "2025-11-16T22:50:25.682564",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.99991774559021,
+      "sentiment_point": 0
     },
     {
       "title": "타임스퀘어, 신학기 맞이 프로모션…\"무신사 스탠다드 50% 할인\"",
@@ -666,7 +885,10 @@
       "published_at": "2025-11-16T22:50:26.284023",
       "company_name": "경방",
       "company_code": "000050",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999194145202637,
+      "sentiment_point": 0
     }
   ],
   "삼양홀딩스": [
@@ -677,7 +899,10 @@
       "published_at": "2025-11-16T22:50:27.054814",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998669624328613,
+      "sentiment_point": 0
     },
     {
       "title": "주병기 “지속 가능한 자본주의로 전환해야”",
@@ -686,7 +911,10 @@
       "published_at": "2025-11-16T22:50:27.493880",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999098777770996,
+      "sentiment_point": 0
     },
     {
       "title": "삼양엔씨켐, 3Q 영업익 41억원.. 전년 동기 대비 50%↑",
@@ -695,7 +923,10 @@
       "published_at": "2025-11-16T22:50:27.961800",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9998677968978882,
+      "sentiment_point": 1
     },
     {
       "title": "삼양엔씨켐, 3분기 영업익 50% 성장…고부가 반도체 수요 확대",
@@ -704,7 +935,10 @@
       "published_at": "2025-11-16T22:50:28.488037",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9998598098754883,
+      "sentiment_point": 1
     },
     {
       "title": "삼양엔씨켐, 3분기 누적 최대 실적 달성",
@@ -713,7 +947,10 @@
       "published_at": "2025-11-16T22:50:29.059445",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9998711347579956,
+      "sentiment_point": 1
     },
     {
       "title": "삼양엔씨켐, 3분기 영업이익 41억…전년比 50% 증가",
@@ -722,7 +959,10 @@
       "published_at": "2025-11-16T22:50:29.449486",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.9998739957809448,
+      "sentiment_point": 1
     },
     {
       "title": "한경협 \"ESG 경영 지원군 돼 달라\"…주병기 공정위원장 \"노력하겠다\"",
@@ -731,7 +971,10 @@
       "published_at": "2025-11-16T22:50:29.865841",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999114274978638,
+      "sentiment_point": 0
     },
     {
       "title": "주병기 공정위원장 \"심각한 기후위기, 지속가능한 자본주의로 전환\"",
@@ -740,7 +983,10 @@
       "published_at": "2025-11-16T22:50:30.314070",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999194145202637,
+      "sentiment_point": 0
     },
     {
       "title": "주병기 만난 김윤 의장 \"공정위, ESG 경영 지원군 돼달라\"",
@@ -749,7 +995,10 @@
       "published_at": "2025-11-16T22:50:30.710743",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999150037765503,
+      "sentiment_point": 0
     },
     {
       "title": "주병기 공정위원장 \"윤리 소비·포용적 거버넌스로 자본주의 전환해야\"",
@@ -758,7 +1007,10 @@
       "published_at": "2025-11-16T22:50:31.192893",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999237060546875,
+      "sentiment_point": 0
     },
     {
       "title": "주병기 공정위원장 \"지속가능한 자본주의 전환 적극 지원\"",
@@ -767,7 +1019,10 @@
       "published_at": "2025-11-16T22:50:31.684205",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999138116836548,
+      "sentiment_point": 0
     },
     {
       "title": "주병기 공정위원장 “포용적 거버넌스 통해 지속가능 자본주의로 전환해야”",
@@ -776,7 +1031,10 @@
       "published_at": "2025-11-16T22:50:32.175537",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999197721481323,
+      "sentiment_point": 0
     },
     {
       "title": "공정위원장 \"공유지의 비극, 포용적 자본주의 전환 시급\"",
@@ -785,7 +1043,10 @@
       "published_at": "2025-11-16T22:50:32.655455",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999192953109741,
+      "sentiment_point": 0
     },
     {
       "title": "주병기 공정위원장 \"지속가능한 자본주의로의 전환 적극 지원\"",
@@ -794,7 +1055,10 @@
       "published_at": "2025-11-16T22:50:33.096102",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999191761016846,
+      "sentiment_point": 0
     },
     {
       "title": "한경협, K-ESG 얼라이언스 회의 개최",
@@ -803,7 +1067,10 @@
       "published_at": "2025-11-16T22:50:33.597204",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998965263366699,
+      "sentiment_point": 0
     },
     {
       "title": "산업계, 공정위에 \"ESG 경영 지원군 돼 달라\"",
@@ -812,7 +1079,10 @@
       "published_at": "2025-11-16T22:50:34.065503",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999051094055176,
+      "sentiment_point": 0
     },
     {
       "title": "김윤 \"친환경 잘한 기업, 그린워싱 오해 안 받게 공정위 도와달라\"",
@@ -821,7 +1091,10 @@
       "published_at": "2025-11-16T22:50:34.512526",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999115467071533,
+      "sentiment_point": 0
     },
     {
       "title": "김윤 회장 \"탄탄한 R&D 파이프라인 구축해 삼양의 새로운 100년 역사 만들어가야”",
@@ -830,7 +1103,10 @@
       "published_at": "2025-11-16T22:50:34.948659",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9957205653190613,
+      "sentiment_point": 0
     },
     {
       "title": "삼양 이노베이션 R&D 페어 찾은 김윤 회장",
@@ -839,7 +1115,10 @@
       "published_at": "2025-11-16T22:50:35.529867",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998704195022583,
+      "sentiment_point": 0
     },
     {
       "title": "[미리보는 이데일리 신문]728조 슈퍼예산, 美 관세합의 지원은 빈칸",
@@ -848,7 +1127,10 @@
       "published_at": "2025-11-16T22:50:36.065940",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999127388000488,
+      "sentiment_point": 0
     },
     {
       "title": "[비즈&] 삼성·LG전자, 'CES 2026' 혁신상 휩쓸어 外",
@@ -857,7 +1139,10 @@
       "published_at": "2025-11-16T22:50:36.545343",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "positive",
+      "model_confidence": 0.999431312084198,
+      "sentiment_point": 1
     },
     {
       "title": "김윤 삼양홀딩스 회장 “AI시대, 끊임없이 고민하고 변화해야”",
@@ -866,7 +1151,10 @@
       "published_at": "2025-11-16T22:50:36.944157",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.999908447265625,
+      "sentiment_point": 0
     },
     {
       "title": "김윤 삼양그룹 회장 “탄탄한 R&D로 새 100년 역사 만들어야”",
@@ -875,7 +1163,10 @@
       "published_at": "2025-11-16T22:50:37.406669",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998599290847778,
+      "sentiment_point": 0
     },
     {
       "title": "김윤 삼양홀딩스 회장 \"AI시대 대응 방안 고민하고 변화 나서야\"",
@@ -884,7 +1175,10 @@
       "published_at": "2025-11-16T22:50:37.998360",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998003840446472,
+      "sentiment_point": 0
     },
     {
       "title": "김윤 삼양그룹 회장 “AI 시대, 끊임없이 고민하고 변화해야”",
@@ -893,7 +1187,10 @@
       "published_at": "2025-11-16T22:50:38.423242",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998490810394287,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, ‘삼양 이노베이션 R&D 페어 2025’ 개최",
@@ -902,7 +1199,10 @@
       "published_at": "2025-11-16T22:50:38.899007",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998811483383179,
+      "sentiment_point": 0
     },
     {
       "title": "SPC 회장 두 아들 승진… 3세 경영 강화",
@@ -911,7 +1211,10 @@
       "published_at": "2025-11-16T22:50:39.360997",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999115467071533,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹 인사… 삼양사 대표이사 이운익씨",
@@ -920,7 +1223,10 @@
       "published_at": "2025-11-16T22:50:39.960956",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9999024868011475,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹 대표 4명 교체… 삼양사 화학 부문 대표에 이운익",
@@ -929,7 +1235,10 @@
       "published_at": "2025-11-16T22:50:40.418693",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.999811589717865,
+      "sentiment_point": 0
     },
     {
       "title": "삼양사 신임 대표에 이운익  내정",
@@ -938,7 +1247,10 @@
       "published_at": "2025-11-16T22:50:40.803687",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998728036880493,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, 이운익 삼양사 대표 선임…IBM·한화 출신 영입",
@@ -947,7 +1259,10 @@
       "published_at": "2025-11-16T22:50:41.176996",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998045563697815,
+      "sentiment_point": 0
     },
     {
       "title": "삼양사 새 대표에 이운익… “핵심 화학사업 성장 주도”",
@@ -956,7 +1271,10 @@
       "published_at": "2025-11-16T22:50:41.833648",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998658895492554,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, 삼양사에 ‘화학통’ 이운익 대표 선임",
@@ -965,7 +1283,10 @@
       "published_at": "2025-11-16T22:50:42.392426",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9997289776802063,
+      "sentiment_point": 0
     },
     {
       "title": "삼양사 이운익 신임 대표 내정..그룹 정기 인사 단행",
@@ -974,7 +1295,10 @@
       "published_at": "2025-11-16T22:50:43.075974",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998983144760132,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, 정기 임원인사·조직개편…이운익 삼양사 대표이사 내정",
@@ -983,7 +1307,10 @@
       "published_at": "2025-11-16T22:50:43.653274",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998843669891357,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹 2025 임원인사…삼양사, ‘화학통’ 이운익 대표 선임",
@@ -992,7 +1319,10 @@
       "published_at": "2025-11-16T22:50:44.225367",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998804330825806,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹 \"변화에 선제 대응\"…계열사 4곳 대표 교체",
@@ -1001,7 +1331,10 @@
       "published_at": "2025-11-16T22:50:44.829378",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.999751627445221,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, 삼양사 신임 대표에 이운익 낙점…삼양패키징·삼양데이타시스템 대표 교체",
@@ -1010,7 +1343,10 @@
       "published_at": "2025-11-16T22:50:45.414402",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998811483383179,
+      "sentiment_point": 0
     },
     {
       "title": "삼양사 신임대표에 이운익…삼양패키징 윤석환·삼양KCI 안태환",
@@ -1019,7 +1355,10 @@
       "published_at": "2025-11-16T22:50:45.938587",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998844861984253,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, AI 전환·글로벌 전략 재정비…정기 인사 단행",
@@ -1028,7 +1367,10 @@
       "published_at": "2025-11-16T22:50:46.466675",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998688697814941,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, 정기 임원인사 단행…삼양사·삼양패키징·삼양KCI 대표 내부 승진",
@@ -1037,7 +1379,10 @@
       "published_at": "2025-11-16T22:50:46.922610",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998970031738281,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, 사장단 인사…삼양사 대표 이운익·삼양패키징 윤석환",
@@ -1046,7 +1391,10 @@
       "published_at": "2025-11-16T22:50:47.395580",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998915195465088,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹 계열사 4곳 대표이사 신규 선임",
@@ -1055,7 +1403,10 @@
       "published_at": "2025-11-16T22:50:47.910283",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998854398727417,
+      "sentiment_point": 0
     },
     {
       "title": "삼양사 대표에 '화학통' 이운익…사장 3명 내부 발탁",
@@ -1064,7 +1415,10 @@
       "published_at": "2025-11-16T22:50:48.291959",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998862743377686,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, 삼양사 대표로 이운익 AM BU장 내정",
@@ -1073,7 +1427,10 @@
       "published_at": "2025-11-16T22:50:48.707060",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998900890350342,
+      "sentiment_point": 0
     },
     {
       "title": "“AI·화학 새판 짠다” 삼양그룹, 대규모 인사 단행",
@@ -1082,7 +1439,10 @@
       "published_at": "2025-11-16T22:50:49.307917",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998478889465332,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, 4개 계열사 대표 교체 조기 인사 단행… 삼양사 대표에 이운익",
@@ -1091,7 +1451,10 @@
       "published_at": "2025-11-16T22:50:49.761998",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998893737792969,
+      "sentiment_point": 0
     },
     {
       "title": "삼양사 신임대표에 이운익…삼양그룹, 4개 계열사 대표 교체",
@@ -1100,7 +1463,10 @@
       "published_at": "2025-11-16T22:50:50.288248",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998641014099121,
+      "sentiment_point": 0
     },
     {
       "title": "삼양사 대표에 이운익…삼양그룹, 네 개 계열사 대표 교체",
@@ -1109,7 +1475,10 @@
       "published_at": "2025-11-16T22:50:50.816214",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998960494995117,
+      "sentiment_point": 0
     },
     {
       "title": "삼양그룹, 정기 임원인사 한달 앞당겨..\"변화에 선제 대응\"",
@@ -1118,7 +1487,10 @@
       "published_at": "2025-11-16T22:50:51.231377",
       "company_name": "삼양홀딩스",
       "company_code": "000070",
-      "market": "J"
+      "market": "J",
+      "sentiment_label": "neutral",
+      "model_confidence": 0.9998934268951416,
+      "sentiment_point": 0
     }
   ]
 }

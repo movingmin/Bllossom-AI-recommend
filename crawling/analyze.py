@@ -1,105 +1,165 @@
-# crawling/analyze.py
 import json
-import logging
 from pathlib import Path
-from typing import Dict, Any
 
-import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import pipeline
 
-logger = logging.getLogger(__name__)
-
-MODEL_NAME = "snunlp/KR-FinBert-SC"  # 감성 분석용 모델
-
-class FinBertSentiment:
-    def __init__(self, model_name: str = MODEL_NAME, device: str | None = None):
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = AutoModelForSequenceClassification.from_pretrained(model_name)
-
-        if device is None:
-            device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.device = device
-        self.model.to(self.device)
-
-        # 모델마다 다르지만, 보통 금융 FinBERT는 [neg, neu, pos] 순서를 많이 씀
-        self.label_order = ["negative", "neutral", "positive"]
-
-        logger.info(f"Loaded FinBERT model on {self.device}")
-
-    def score_text(self, text: str) -> int:
-        """
-        텍스트 하나에 대해:
-        - FinBERT로 [neg, neu, pos] 확률 계산
-        - 최종 감성 점수 -5 ~ 5 정수로 리턴
-        """
-        if not text:
-            return 0
-
-        inputs = self.tokenizer(
-            text,
-            return_tensors="pt",
-            truncation=True,
-            max_length=256,
-        ).to(self.device)
-
-        with torch.no_grad():
-            outputs = self.model(**inputs)
-            logits = outputs.logits  # [1, num_labels]
-
-        probs = torch.softmax(logits, dim=-1)[0].cpu().tolist()
-        neg, neu, pos = probs
-
-        # 간단한 스코어링 방식: (pos - neg) * 5
-        raw_score = (pos - neg)  # -1 ~ 1 근사
-        int_score = int(round(raw_score * 5))  # -5 ~ 5
-
-        if int_score > 5:
-            int_score = 5
-        if int_score < -5:
-            int_score = -5
-
-        return int_score
+# ---- 경로 설정 ----
+BASE_DIR = Path(__file__).resolve().parent
+DB_DIR = BASE_DIR / "db"
+INPUT_PATH = DB_DIR / "crawling.json"
+COMPANY_SCORE_PATH = DB_DIR / "company_scores.json"  # 기업별 점수 저장
+LABELED_DIR = DB_DIR / "labeled"                     # 회사별 라벨링 파일들 모아둘 디렉터리. 2000개만드는건좀부담스러워서안쓸듯
 
 
-def analyze_file(
-    crawling_path: Path,
-    output_path: Path,
-):
-    logger.info(f"Loading crawling data from: {crawling_path}")
-    with crawling_path.open("r", encoding="utf-8") as f:
-        crawling_data: Dict[str, Any] = json.load(f)
+MODEL_NAME = "snunlp/KR-FinBert-SC"
 
-    sentiment_model = FinBertSentiment()
 
-    response: Dict[str, Any] = {}
+def load_classifier():
+    """
+    KR-FinBERT 분류 파이프라인 로딩
+    device = -1  → CPU 사용, 0이면 GPU 사용
+    """
+    device = -1  # GPU 쓰려면 0으로 변경 (지금은 CPU)
+    clf = pipeline(
+        task="text-classification",
+        model=MODEL_NAME,
+        tokenizer=MODEL_NAME,
+        device=device,
+        truncation=True,
+        max_length=512,
+    )
+    return clf
 
-    for company, articles in crawling_data.items():
-        logger.info(f"Analyzing sentiment for company: {company}")
-        company_news = []
-        total_sum = 0
 
-        for item in articles:
-            title = item.get("title", "") or ""
-            content = item.get("content", "") or ""
-            text = (title + " " + content).strip()
+def make_input_text(title: str, content: str) -> str:
+    """
+    제목 + 본문을 하나의 텍스트로 합치기
+    """
+    title = (title or "").strip()
+    content = (content or "").strip()
+    if not content:
+        return title
+    return f"[제목] {title}\n[본문] {content}"
 
-            point = sentiment_model.score_text(text)
-            total_sum += point
 
-            company_news.append(
-                {
-                    "title": title,
-                    "point": point,
-                }
-            )
+def label_to_point(label: str | None) -> int:
+    """
+    모델이 준 label을 -1 / 0 / +1 점수로 변환
+    """
+    if not label:
+        return 0
+    l = label.lower()
+    if l == "positive":
+        return 1
+    if l == "negative":
+        return -1
+    return 0  # neutral or 기타
 
-        response[company] = {
-            "news": company_news,
-            "sum": total_sum,
+
+def sanitize_filename(name: str) -> str:
+    """
+    회사 이름을 파일명에 쓸 수 있게 안전하게 변환
+    (슬래시, 공백 등 제거)
+    """
+    invalid_chars = r'\/:*?"<>|'
+    safe = "".join(ch for ch in name if ch not in invalid_chars)
+    safe = safe.replace(" ", "_")
+    if not safe:
+        safe = "unknown_company"
+    return safe
+
+
+def main():
+    # 디렉터리 준비
+    LABELED_DIR.mkdir(parents=True, exist_ok=True)
+
+    # 1) 원본 크롤링 데이터 로드
+    print(f"Loading crawling data from: {INPUT_PATH}")
+    with INPUT_PATH.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    # 2) 모델 로드
+    print("Loading KR-FinBERT model...")
+    classifier = load_classifier()
+    print("Model loaded.")
+
+    company_scores: dict[str, dict] = {}
+
+    # 3) 회사별로 기사 라벨링 + 회사별 JSON 파일로 저장
+    for company_name, articles in data.items():
+        print(f"Labeling articles for company: {company_name} (count={len(articles)})")
+
+        labeled_articles = []
+
+        # 기업별 카운터
+        pos_count = 0
+        neg_count = 0
+        neu_count = 0
+
+        for article in articles:
+            title = article.get("title", "")
+            content = article.get("content", "")
+            text = make_input_text(title, content)
+
+            try:
+                result = classifier(text)[0]
+                label = result.get("label")
+                confidence = float(result.get("score", 0.0))
+            except Exception as e:
+                print(f"[WARN] Failed to classify article '{title}': {e}")
+                label = None
+                confidence = 0.0
+
+            # -1 / 0 / +1 점수
+            sentiment_point = label_to_point(label)
+
+            # 기업별 카운트
+            if label:
+                l = label.lower()
+                if l == "positive":
+                    pos_count += 1
+                elif l == "negative":
+                    neg_count += 1
+                else:
+                    neu_count += 1
+
+            # 기사 하나에 라벨 정보 추가
+            article_with_label = {
+                **article,
+                "sentiment_label": label,            # 'positive' / 'negative' / 'neutral'
+                "sentiment_confidence": confidence,  # 0.0 ~ 1.0 (모델 확신도)
+                "sentiment_point": sentiment_point,  # -1 / 0 / +1 (우리 점수)
+            }
+            labeled_articles.append(article_with_label)
+
+        # ----- 회사별 라벨링 결과를 개별 파일로 저장 (db/labeled/ 아래) -----
+        # safe_name = sanitize_filename(company_name)
+        # company_output_path = LABELED_DIR / f"crawling_labeled_{safe_name}.json"
+        # with company_output_path.open("w", encoding="utf-8") as f:
+        #     json.dump(labeled_articles, f, ensure_ascii=False, indent=2)
+        # print(f"Saved labeled articles for '{company_name}' to: {company_output_path}")
+
+        # ----- 회사별 점수 집계 -----
+        company_score = pos_count - neg_count
+        company_scores[company_name] = {
+            "positive_count": pos_count,
+            "negative_count": neg_count,
+            "neutral_count": neu_count,
+            "total_articles": len(labeled_articles),
+            "company_score": company_score,
         }
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open("w", encoding="utf-8") as f:
-        json.dump(response, f, ensure_ascii=False, indent=2)
+        print(
+            f"[SUMMARY] {company_name}: "
+            f"+{pos_count} / -{neg_count} / 0:{neu_count} "
+            f"→ company_score = {company_score}"
+        )
 
-    logger.info(f"Saved sentiment response to: {output_path}")
+    # 4) 기업별 점수 결과 저장 (핵심 파일)
+    with COMPANY_SCORE_PATH.open("w", encoding="utf-8") as f:
+        json.dump(company_scores, f, ensure_ascii=False, indent=2)
+    print(f"Saved company scores to: {COMPANY_SCORE_PATH}")
+
+
+if __name__ == "__main__":
+    main()
