@@ -1,3 +1,4 @@
 .env
 .venv/
 crawling/.venv
+crawling/db/
