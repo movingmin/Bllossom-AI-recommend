@@ -19,7 +19,7 @@ def load_classifier():
     KR-FinBERT 분류 파이프라인 로딩
     device = -1  → CPU 사용, 0이면 GPU 사용
     """
-    device = -1  # GPU 쓰려면 0으로 변경 (지금은 CPU)
+    device = 0  # GPU 쓰려면 0으로 변경 (지금은 CPU)
     clf = pipeline(
         task="text-classification",
         model=MODEL_NAME,

@@ -498,7 +498,7 @@ def crawl_all_to_file(
     )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open("w", encoding="utf-8") as f:
+    with output_path.open("w", encoding="utf-8", errors="ignore") as f:
         json.dump(crawling_data, f, ensure_ascii=False, indent=2)
 
     logger.info(f"Saved crawling data to: {output_path}")
