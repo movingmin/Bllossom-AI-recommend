@@ -9,6 +9,7 @@ from typing import Dict, List, Optional, Any
 # === 경로 상수 ===
 SCORES_PATH = Path("/crawling/db/company_scores.json")
 PRICES_PATH = Path("/calling_api/db/all_prices.json")
+LLM_DATA_PATH = Path("/ai/db/for_llm.json")
 
 
 # === 데이터 모델 ===
@@ -41,42 +42,42 @@ def _load_json(path: Path) -> Any:
         return json.load(f)
 
 
-# def _extract_price(raw_price_obj: Any) -> Optional[float]:
-#     """
-#     all_prices.json 구조가 어떻게 생겼는지 확정이 안 됐으니까,
-#     여기서 여러 케이스를 방어적으로 처리한다.
+def _extract_price(raw_price_obj: Any) -> Optional[float]:
+    """
+    all_prices.json 구조가 어떻게 생겼는지 확정이 안 됐으니까,
+    여기서 여러 케이스를 방어적으로 처리한다.
 
-#     기대하는 형태 예시:
-#     all_prices.json:
-#     {
-#         "삼성전자": { "price": 72000 },
-#         "현대차": { "current_price": 180000 },
-#         ...
-#     }
-#     또는
-#     {
-#         "삼성전자": 72000,
-#         "현대차": 180000,
-#         ...
-#     }
-#     """
-#     if raw_price_obj is None:
-#         return None
+    기대하는 형태 예시:
+    all_prices.json:
+    {
+        "삼성전자": { "price": 72000 },
+        "현대차": { "current_price": 180000 },
+        ...
+    }
+    또는
+    {
+        "삼성전자": 72000,
+        "현대차": 180000,
+        ...
+    }
+    """
+    if raw_price_obj is None:
+        return None
 
-#     # 숫자 하나만 들어있는 경우
-#     if isinstance(raw_price_obj, (int, float)):
-#         return float(raw_price_obj)
+    # 숫자 하나만 들어있는 경우
+    if isinstance(raw_price_obj, (int, float)):
+        return float(raw_price_obj)
 
-#     if isinstance(raw_price_obj, dict):
-#         # 자주 쓰이는 키 후보
-#         for key in ["price", "current_price", "trade_price", "close"]:
-#             if key in raw_price_obj:
-#                 value = raw_price_obj[key]
-#                 if isinstance(value, (int, float)):
-#                     return float(value)
+    if isinstance(raw_price_obj, dict):
+        # 자주 쓰이는 키 후보
+        for key in ["price", "current_price", "trade_price", "close"]:
+            if key in raw_price_obj:
+                value = raw_price_obj[key]
+                if isinstance(value, (int, float)):
+                    return float(value)
 
-#     # 알 수 없는 형태면 None
-#     return None
+    # 알 수 없는 형태면 None
+    return None
 
 
 # === 외부에서 쓰는 핵심 함수들 ===
@@ -173,7 +174,7 @@ def pick_top_companies(
     return filtered[:top_n]
 
 
-def to_llm_companies_json(companies: List[CompanyData]) -> str:
+def to_llm_json(companies: List[CompanyData]) -> str:
     """
     LLM 프롬프트에 붙이기 좋은 JSON 문자열 생성.
     [
@@ -186,24 +187,22 @@ def to_llm_companies_json(companies: List[CompanyData]) -> str:
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 
-# === 간단 테스트 & 예시 ===
+def save_llm_json(
+    companies: List[CompanyData],
+    path: Path = LLM_DATA_PATH,
+) -> None:
+    json_str = to_llm_json(companies)
+    path.parent.mkdir(parents=True, exist_ok=True)  # 디렉토리 없으면 생성
+    with path.open("w", encoding="utf-8") as f:
+        f.write(json_str)
 
 if __name__ == "__main__":
-    # 1. 데이터 로드
+    # 1. 두 JSON에서 데이터 로드
     company_map = load_company_data()
 
-    # 2. 삼성전자 조회 예시
-    samsung = get_company("삼성전자", company_map)
-    if samsung:
-        print("[삼성전자 데이터]")
-        print(samsung)
+    # 2. 점수 상위 50개만 뽑는다 (기사 최소 20개 이상 예시)
+    top_companies = pick_top_companies(company_map, top_n=50, min_articles=20)
 
-    # 3. 점수 기준 상위 5개 뽑기 (기사 최소 20개 이상)
-    top5 = pick_top_companies(company_map, top_n=5, min_articles=20)
-    print("\n[점수 상위 5개]")
-    for c in top5:
-        print(f"- {c.name}: score={c.score}, total_articles={c.total_articles}, price={c.price}")
-
-    # 4. LLM 컨텍스트용 JSON 출력
-    print("\n[LLM에 넘길 companies_json]")
-    print(to_llm_companies_json(top5))
+    # 3. LLM용 JSON 파일로 저장
+    save_llm_json(top_companies)
+    print("저장 완료:", LLM_DATA_PATH)
