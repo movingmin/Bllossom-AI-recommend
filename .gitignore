@@ -1,3 +1,5 @@
 .env
 .venv
-.myenb
+./Web/.myenb
+./crawling/db/
+./crawling/.venv
