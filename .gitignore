@@ -1,5 +1,7 @@
 .env
 .venv
-Web/myenb/
+Web/.venv/
 crawling/db/
 crawling/.venv/
+calling_api/.venv/
+ai/.venv/
