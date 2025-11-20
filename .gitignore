@@ -1,5 +1,5 @@
 .env
 .venv
-Web/.myenb/
+Web/myenb/
 crawling/db/
 crawling/.venv/
