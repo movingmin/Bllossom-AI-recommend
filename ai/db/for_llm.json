@@ -1,0 +1,402 @@
+[
+  {
+    "name": "온코닉테라퓨틱스",
+    "score": 43,
+    "positive": 43,
+    "negative": 0,
+    "neutral": 7,
+    "total_articles": 50
+  },
+  {
+    "name": "아이티엠반도체",
+    "score": 42,
+    "positive": 42,
+    "negative": 0,
+    "neutral": 8,
+    "total_articles": 50
+  },
+  {
+    "name": "지씨셀",
+    "score": 42,
+    "positive": 44,
+    "negative": 2,
+    "neutral": 4,
+    "total_articles": 50
+  },
+  {
+    "name": "한성크린텍",
+    "score": 41,
+    "positive": 43,
+    "negative": 2,
+    "neutral": 5,
+    "total_articles": 50
+  },
+  {
+    "name": "LS에코에너지",
+    "score": 40,
+    "positive": 42,
+    "negative": 2,
+    "neutral": 6,
+    "total_articles": 50
+  },
+  {
+    "name": "위메이드플레이",
+    "score": 40,
+    "positive": 41,
+    "negative": 1,
+    "neutral": 8,
+    "total_articles": 50
+  },
+  {
+    "name": "교촌에프앤비",
+    "score": 39,
+    "positive": 40,
+    "negative": 1,
+    "neutral": 9,
+    "total_articles": 50
+  },
+  {
+    "name": "시지메드텍",
+    "score": 39,
+    "positive": 42,
+    "negative": 3,
+    "neutral": 5,
+    "total_articles": 50
+  },
+  {
+    "name": "팬젠",
+    "score": 39,
+    "positive": 41,
+    "negative": 2,
+    "neutral": 7,
+    "total_articles": 50
+  },
+  {
+    "name": "현대위아",
+    "score": 38,
+    "positive": 39,
+    "negative": 1,
+    "neutral": 10,
+    "total_articles": 50
+  },
+  {
+    "name": "한전KPS",
+    "score": 38,
+    "positive": 38,
+    "negative": 0,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "한미글로벌",
+    "score": 38,
+    "positive": 38,
+    "negative": 0,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "삼익제약",
+    "score": 38,
+    "positive": 41,
+    "negative": 3,
+    "neutral": 6,
+    "total_articles": 50
+  },
+  {
+    "name": "디이엔티",
+    "score": 38,
+    "positive": 38,
+    "negative": 0,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "LS",
+    "score": 37,
+    "positive": 37,
+    "negative": 0,
+    "neutral": 13,
+    "total_articles": 50
+  },
+  {
+    "name": "LIG넥스원",
+    "score": 37,
+    "positive": 38,
+    "negative": 1,
+    "neutral": 11,
+    "total_articles": 50
+  },
+  {
+    "name": "에스티큐브",
+    "score": 37,
+    "positive": 37,
+    "negative": 0,
+    "neutral": 10,
+    "total_articles": 47
+  },
+  {
+    "name": "에이치시티",
+    "score": 37,
+    "positive": 38,
+    "negative": 1,
+    "neutral": 11,
+    "total_articles": 50
+  },
+  {
+    "name": "휴온스",
+    "score": 37,
+    "positive": 40,
+    "negative": 3,
+    "neutral": 7,
+    "total_articles": 50
+  },
+  {
+    "name": "큐로셀",
+    "score": 37,
+    "positive": 38,
+    "negative": 1,
+    "neutral": 11,
+    "total_articles": 50
+  },
+  {
+    "name": "잉글우드랩",
+    "score": 37,
+    "positive": 40,
+    "negative": 3,
+    "neutral": 7,
+    "total_articles": 50
+  },
+  {
+    "name": "대동",
+    "score": 36,
+    "positive": 36,
+    "negative": 0,
+    "neutral": 14,
+    "total_articles": 50
+  },
+  {
+    "name": "보령",
+    "score": 36,
+    "positive": 37,
+    "negative": 1,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "한미사이언스",
+    "score": 36,
+    "positive": 37,
+    "negative": 1,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "삼성E&A",
+    "score": 36,
+    "positive": 39,
+    "negative": 3,
+    "neutral": 8,
+    "total_articles": 50
+  },
+  {
+    "name": "대웅제약",
+    "score": 36,
+    "positive": 38,
+    "negative": 2,
+    "neutral": 10,
+    "total_articles": 50
+  },
+  {
+    "name": "엘브이엠씨홀딩스",
+    "score": 36,
+    "positive": 37,
+    "negative": 1,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "한글과컴퓨터",
+    "score": 36,
+    "positive": 36,
+    "negative": 0,
+    "neutral": 14,
+    "total_articles": 50
+  },
+  {
+    "name": "나노엔텍",
+    "score": 36,
+    "positive": 37,
+    "negative": 1,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "제이브이엠",
+    "score": 36,
+    "positive": 37,
+    "negative": 1,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "엠로",
+    "score": 36,
+    "positive": 39,
+    "negative": 3,
+    "neutral": 8,
+    "total_articles": 50
+  },
+  {
+    "name": "티쓰리",
+    "score": 36,
+    "positive": 37,
+    "negative": 1,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "FSN",
+    "score": 36,
+    "positive": 38,
+    "negative": 2,
+    "neutral": 10,
+    "total_articles": 50
+  },
+  {
+    "name": "폴라리스세원",
+    "score": 36,
+    "positive": 38,
+    "negative": 2,
+    "neutral": 10,
+    "total_articles": 50
+  },
+  {
+    "name": "더블유에스아이",
+    "score": 36,
+    "positive": 40,
+    "negative": 4,
+    "neutral": 6,
+    "total_articles": 50
+  },
+  {
+    "name": "대한해운",
+    "score": 35,
+    "positive": 36,
+    "negative": 1,
+    "neutral": 13,
+    "total_articles": 50
+  },
+  {
+    "name": "에이프로젠",
+    "score": 35,
+    "positive": 38,
+    "negative": 3,
+    "neutral": 9,
+    "total_articles": 50
+  },
+  {
+    "name": "LG디스플레이",
+    "score": 35,
+    "positive": 35,
+    "negative": 0,
+    "neutral": 15,
+    "total_articles": 50
+  },
+  {
+    "name": "샘씨엔에스",
+    "score": 35,
+    "positive": 39,
+    "negative": 4,
+    "neutral": 7,
+    "total_articles": 50
+  },
+  {
+    "name": "스피어",
+    "score": 35,
+    "positive": 37,
+    "negative": 2,
+    "neutral": 11,
+    "total_articles": 50
+  },
+  {
+    "name": "에스엠벡셀",
+    "score": 34,
+    "positive": 36,
+    "negative": 2,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "애경케미칼",
+    "score": 34,
+    "positive": 36,
+    "negative": 2,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "HS효성첨단소재",
+    "score": 34,
+    "positive": 36,
+    "negative": 2,
+    "neutral": 12,
+    "total_articles": 50
+  },
+  {
+    "name": "LS마린솔루션",
+    "score": 34,
+    "positive": 34,
+    "negative": 0,
+    "neutral": 16,
+    "total_articles": 50
+  },
+  {
+    "name": "남선알미늄",
+    "score": 33,
+    "positive": 35,
+    "negative": 2,
+    "neutral": 13,
+    "total_articles": 50
+  },
+  {
+    "name": "LS ELECTRIC",
+    "score": 33,
+    "positive": 34,
+    "negative": 1,
+    "neutral": 15,
+    "total_articles": 50
+  },
+  {
+    "name": "NHN",
+    "score": 33,
+    "positive": 35,
+    "negative": 2,
+    "neutral": 13,
+    "total_articles": 50
+  },
+  {
+    "name": "동구바이오제약",
+    "score": 33,
+    "positive": 34,
+    "negative": 1,
+    "neutral": 13,
+    "total_articles": 48
+  },
+  {
+    "name": "오상헬스케어",
+    "score": 33,
+    "positive": 34,
+    "negative": 1,
+    "neutral": 15,
+    "total_articles": 50
+  },
+  {
+    "name": "레드캡투어",
+    "score": 33,
+    "positive": 34,
+    "negative": 1,
+    "neutral": 15,
+    "total_articles": 50
+  }
+]

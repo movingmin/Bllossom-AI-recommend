@@ -7,9 +7,9 @@ from typing import Dict, List, Optional, Any
 
 
 # === 경로 상수 ===
-SCORES_PATH = Path("/crawling/db/company_scores.json")
-PRICES_PATH = Path("/calling_api/db/all_prices.json")
-LLM_DATA_PATH = Path("/ai/db/for_llm.json")
+SCORES_PATH = Path("../crawling/db/company_scores.json")
+PRICES_PATH = Path("../calling_api/db/all_prices.json")
+LLM_DATA_PATH = Path("../ai/db/for_llm.json")
 
 
 # === 데이터 모델 ===

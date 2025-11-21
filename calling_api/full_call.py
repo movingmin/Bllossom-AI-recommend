@@ -13,12 +13,14 @@ ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI
 
 SLEEP_BETWEEN_CALLS = 1
 
+os.makedirs("./db", exist_ok=True)
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
 )
 
-with open("market_code.json", "r", encoding="utf-8") as f:
+with open("./db/market_code.json", "r", encoding="utf-8") as f:
     STOCKS = json.load(f)
 
 
@@ -108,10 +110,10 @@ def main():
         time.sleep(SLEEP_BETWEEN_CALLS)
 
     # 여기서 한 번에 JSON 배열로 저장
-    with open("api.json", "w", encoding="utf-8") as f:
+    with open("./db/all_prices.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
-    logging.info("📁 api.json에 %d개 레코드(JSON 배열) 저장 완료", len(results))
+    logging.info("📁 all_prices.json에 %d개 레코드(JSON 배열) 저장 완료", len(results))
 
 
 if __name__ == "__main__":

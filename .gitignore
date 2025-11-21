@@ -1,7 +1,7 @@
 .env
 .venv
 Web/.venv/
-crawling/db/
+crawling/db/crawling.json
 crawling/.venv/
 calling_api/.venv/
 calling_api/api_log.jsonl
