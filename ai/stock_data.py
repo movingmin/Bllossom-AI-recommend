@@ -44,11 +44,9 @@ def _load_json(path: Path) -> Any:
 
 def _extract_price(raw_price_obj: Any) -> Optional[float]:
     """
-    all_prices.json 구조가 어떻게 생겼는지 확정이 안 됐으니까,
-    여기서 여러 케이스를 방어적으로 처리한다.
+    all_prices.json 이 dict 형태일 때만 사용하는 보조 함수.
 
-    기대하는 형태 예시:
-    all_prices.json:
+    예시:
     {
         "삼성전자": { "price": 72000 },
         "현대차": { "current_price": 180000 },
@@ -80,6 +78,26 @@ def _extract_price(raw_price_obj: Any) -> Optional[float]:
     return None
 
 
+def _parse_price_str(s: str) -> Optional[float]:
+    """
+    문자열 가격을 float로 변환.
+    예: "100600" 또는 "1,006.50"
+    """
+    if s is None:
+        return None
+    if not isinstance(s, str):
+        return None
+
+    s = s.replace(",", "").strip()
+    if not s:
+        return None
+
+    try:
+        return float(s)
+    except ValueError:
+        return None
+
+
 # === 외부에서 쓰는 핵심 함수들 ===
 
 def load_company_data(
@@ -90,27 +108,38 @@ def load_company_data(
     company_scores.json + all_prices.json 두 개를 로드해서
     { 회사이름: CompanyData } 형태로 합쳐서 반환.
 
-    - scores_path: /crawling/db/company_scores.json
-    - prices_path: /calling_api/db/all_prices.json
+    - scores_path: ../crawling/db/company_scores.json
+      예시:
+      {
+        "삼성전자": {
+          "positive_count": ...,
+          "negative_count": ...,
+          "neutral_count": ...,
+          "total_articles": ...,
+          "company_score": ...
+        },
+        ...
+      }
+
+    - prices_path: ../calling_api/db/all_prices.json
+      예시(현재 구조):
+      [
+        {
+          "timestamp": "...",
+          "iscd": "005930",
+          "stck_prpr": "100600",
+          "company": "삼성전자"
+        },
+        ...
+      ]
     """
     raw_scores = _load_json(scores_path)
     raw_prices = _load_json(prices_path)
 
     companies: Dict[str, CompanyData] = {}
 
-    # 1) 점수 기반으로 기본 뼈대 생성
+    # 1) 점수 기반으로 기본 뼈대 생성 (회사명 기준)
     for name, data in raw_scores.items():
-        # company_scores.json 구조 예시 가정:
-        # {
-        #   "대동": {
-        #       "positive_count": 36,
-        #       "negative_count": 0,
-        #       "neutral_count": 14,
-        #       "total_articles": 50,
-        #       "company_score": 36
-        #   },
-        #   ...
-        # }
         companies[name] = CompanyData(
             name=name,
             score=data.get("company_score"),
@@ -122,14 +151,46 @@ def load_company_data(
         )
 
     # 2) 가격 정보 합치기
-    # raw_prices가 dict[str, Any] 형태라고 가정
+
+    # 2-1. dict[str, Any] 패턴도 여전히 지원
     if isinstance(raw_prices, dict):
         for name, price_obj in raw_prices.items():
             price = _extract_price(price_obj)
+            if price is None:
+                continue
             if name in companies:
                 companies[name].price = price
             else:
-                # 점수에는 없는데 가격만 있는 종목도 넣고 싶다면 여기서 생성
+                # 점수에는 없는데 가격만 있는 종목도 넣고 싶다면 유지
+                companies[name] = CompanyData(
+                    name=name,
+                    price=price,
+                )
+
+    # 2-2. 지금 네 all_prices.json 패턴: list[dict]
+    elif isinstance(raw_prices, list):
+        for row in raw_prices:
+            if not isinstance(row, dict):
+                continue
+
+            name = row.get("company") or row.get("hts_kor_isnm")
+            if not name:
+                continue
+
+            raw_price = row.get("stck_prpr") or row.get("price")
+            price = None
+            if isinstance(raw_price, (int, float)):
+                price = float(raw_price)
+            elif isinstance(raw_price, str):
+                price = _parse_price_str(raw_price)
+
+            if price is None:
+                continue
+
+            if name in companies:
+                companies[name].price = price
+            else:
+                # 점수는 없고 가격만 있는 종목도 필요하면 살려두기
                 companies[name] = CompanyData(
                     name=name,
                     price=price,
@@ -195,6 +256,7 @@ def save_llm_json(
     path.parent.mkdir(parents=True, exist_ok=True)  # 디렉토리 없으면 생성
     with path.open("w", encoding="utf-8") as f:
         f.write(json_str)
+
 
 if __name__ == "__main__":
     # 1. 두 JSON에서 데이터 로드

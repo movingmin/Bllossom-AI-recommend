@@ -5,7 +5,8 @@
     "positive": 43,
     "negative": 0,
     "neutral": 7,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 16210.0
   },
   {
     "name": "아이티엠반도체",
@@ -13,7 +14,8 @@
     "positive": 42,
     "negative": 0,
     "neutral": 8,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 10760.0
   },
   {
     "name": "지씨셀",
@@ -21,7 +23,8 @@
     "positive": 44,
     "negative": 2,
     "neutral": 4,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 24150.0
   },
   {
     "name": "한성크린텍",
@@ -29,7 +32,8 @@
     "positive": 43,
     "negative": 2,
     "neutral": 5,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 1461.0
   },
   {
     "name": "LS에코에너지",
@@ -37,7 +41,8 @@
     "positive": 42,
     "negative": 2,
     "neutral": 6,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 37050.0
   },
   {
     "name": "위메이드플레이",
@@ -45,7 +50,8 @@
     "positive": 41,
     "negative": 1,
     "neutral": 8,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 8180.0
   },
   {
     "name": "교촌에프앤비",
@@ -53,7 +59,8 @@
     "positive": 40,
     "negative": 1,
     "neutral": 9,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 4465.0
   },
   {
     "name": "시지메드텍",
@@ -61,7 +68,8 @@
     "positive": 42,
     "negative": 3,
     "neutral": 5,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 1033.0
   },
   {
     "name": "팬젠",
@@ -69,7 +77,8 @@
     "positive": 41,
     "negative": 2,
     "neutral": 7,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 5790.0
   },
   {
     "name": "현대위아",
@@ -77,7 +86,8 @@
     "positive": 39,
     "negative": 1,
     "neutral": 10,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 55400.0
   },
   {
     "name": "한전KPS",
@@ -85,7 +95,8 @@
     "positive": 38,
     "negative": 0,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 52800.0
   },
   {
     "name": "한미글로벌",
@@ -93,7 +104,8 @@
     "positive": 38,
     "negative": 0,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 17570.0
   },
   {
     "name": "삼익제약",
@@ -101,7 +113,8 @@
     "positive": 41,
     "negative": 3,
     "neutral": 6,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 20750.0
   },
   {
     "name": "디이엔티",
@@ -109,7 +122,8 @@
     "positive": 38,
     "negative": 0,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 5470.0
   },
   {
     "name": "LS",
@@ -117,7 +131,8 @@
     "positive": 37,
     "negative": 0,
     "neutral": 13,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 196500.0
   },
   {
     "name": "LIG넥스원",
@@ -125,7 +140,8 @@
     "positive": 38,
     "negative": 1,
     "neutral": 11,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 416500.0
   },
   {
     "name": "에스티큐브",
@@ -133,7 +149,8 @@
     "positive": 37,
     "negative": 0,
     "neutral": 10,
-    "total_articles": 47
+    "total_articles": 47,
+    "price": 7450.0
   },
   {
     "name": "에이치시티",
@@ -141,7 +158,8 @@
     "positive": 38,
     "negative": 1,
     "neutral": 11,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 13300.0
   },
   {
     "name": "휴온스",
@@ -149,7 +167,8 @@
     "positive": 40,
     "negative": 3,
     "neutral": 7,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 29150.0
   },
   {
     "name": "큐로셀",
@@ -157,7 +176,8 @@
     "positive": 38,
     "negative": 1,
     "neutral": 11,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 41900.0
   },
   {
     "name": "잉글우드랩",
@@ -165,7 +185,8 @@
     "positive": 40,
     "negative": 3,
     "neutral": 7,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 13390.0
   },
   {
     "name": "대동",
@@ -173,7 +194,8 @@
     "positive": 36,
     "negative": 0,
     "neutral": 14,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 9600.0
   },
   {
     "name": "보령",
@@ -181,7 +203,8 @@
     "positive": 37,
     "negative": 1,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 8500.0
   },
   {
     "name": "한미사이언스",
@@ -189,7 +212,8 @@
     "positive": 37,
     "negative": 1,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 38700.0
   },
   {
     "name": "삼성E&A",
@@ -197,7 +221,8 @@
     "positive": 39,
     "negative": 3,
     "neutral": 8,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 25700.0
   },
   {
     "name": "대웅제약",
@@ -205,7 +230,8 @@
     "positive": 38,
     "negative": 2,
     "neutral": 10,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 172100.0
   },
   {
     "name": "엘브이엠씨홀딩스",
@@ -213,7 +239,8 @@
     "positive": 37,
     "negative": 1,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 1597.0
   },
   {
     "name": "한글과컴퓨터",
@@ -221,7 +248,8 @@
     "positive": 36,
     "negative": 0,
     "neutral": 14,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 22750.0
   },
   {
     "name": "나노엔텍",
@@ -229,7 +257,8 @@
     "positive": 37,
     "negative": 1,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 3145.0
   },
   {
     "name": "제이브이엠",
@@ -237,7 +266,8 @@
     "positive": 37,
     "negative": 1,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 25550.0
   },
   {
     "name": "엠로",
@@ -245,7 +275,8 @@
     "positive": 39,
     "negative": 3,
     "neutral": 8,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 37500.0
   },
   {
     "name": "티쓰리",
@@ -253,7 +284,8 @@
     "positive": 37,
     "negative": 1,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 1823.0
   },
   {
     "name": "FSN",
@@ -261,7 +293,8 @@
     "positive": 38,
     "negative": 2,
     "neutral": 10,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 1963.0
   },
   {
     "name": "폴라리스세원",
@@ -269,7 +302,8 @@
     "positive": 38,
     "negative": 2,
     "neutral": 10,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 1073.0
   },
   {
     "name": "더블유에스아이",
@@ -277,7 +311,8 @@
     "positive": 40,
     "negative": 4,
     "neutral": 6,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 2005.0
   },
   {
     "name": "대한해운",
@@ -285,7 +320,8 @@
     "positive": 36,
     "negative": 1,
     "neutral": 13,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 1755.0
   },
   {
     "name": "에이프로젠",
@@ -293,7 +329,8 @@
     "positive": 38,
     "negative": 3,
     "neutral": 9,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 700.0
   },
   {
     "name": "LG디스플레이",
@@ -301,7 +338,8 @@
     "positive": 35,
     "negative": 0,
     "neutral": 15,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 12500.0
   },
   {
     "name": "샘씨엔에스",
@@ -309,7 +347,8 @@
     "positive": 39,
     "negative": 4,
     "neutral": 7,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 6710.0
   },
   {
     "name": "스피어",
@@ -317,7 +356,8 @@
     "positive": 37,
     "negative": 2,
     "neutral": 11,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 9230.0
   },
   {
     "name": "에스엠벡셀",
@@ -325,7 +365,8 @@
     "positive": 36,
     "negative": 2,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 2100.0
   },
   {
     "name": "애경케미칼",
@@ -333,7 +374,8 @@
     "positive": 36,
     "negative": 2,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 10210.0
   },
   {
     "name": "HS효성첨단소재",
@@ -341,7 +383,8 @@
     "positive": 36,
     "negative": 2,
     "neutral": 12,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 200000.0
   },
   {
     "name": "LS마린솔루션",
@@ -349,7 +392,8 @@
     "positive": 34,
     "negative": 0,
     "neutral": 16,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 26200.0
   },
   {
     "name": "남선알미늄",
@@ -357,7 +401,8 @@
     "positive": 35,
     "negative": 2,
     "neutral": 13,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 1038.0
   },
   {
     "name": "LS ELECTRIC",
@@ -365,7 +410,8 @@
     "positive": 34,
     "negative": 1,
     "neutral": 15,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 506000.0
   },
   {
     "name": "NHN",
@@ -373,7 +419,8 @@
     "positive": 35,
     "negative": 2,
     "neutral": 13,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 32750.0
   },
   {
     "name": "동구바이오제약",
@@ -381,7 +428,8 @@
     "positive": 34,
     "negative": 1,
     "neutral": 13,
-    "total_articles": 48
+    "total_articles": 48,
+    "price": 5600.0
   },
   {
     "name": "오상헬스케어",
@@ -389,7 +437,8 @@
     "positive": 34,
     "negative": 1,
     "neutral": 15,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 12750.0
   },
   {
     "name": "레드캡투어",
@@ -397,6 +446,7 @@
     "positive": 34,
     "negative": 1,
     "neutral": 15,
-    "total_articles": 50
+    "total_articles": 50,
+    "price": 11710.0
   }
 ]

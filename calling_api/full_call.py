@@ -110,7 +110,7 @@ def main():
         time.sleep(SLEEP_BETWEEN_CALLS)
 
     # 여기서 한 번에 JSON 배열로 저장
-    with open("./db/all_prices.json", "w", encoding="utf-8") as f:
+    with open("./db/all_prices_noname.json", "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
     logging.info("📁 all_prices.json에 %d개 레코드(JSON 배열) 저장 완료", len(results))
