@@ -1,0 +1,25 @@
+services:
+  crawler:
+    build:
+      context: ./crawling
+    container_name: news_crawler
+    volumes:
+      # Mount the db directory to persist JSON data and SQLite files
+      - ./crawling/db:/app/db
+    environment:
+      - TZ=Asia/Seoul
+    # Keep the container running if needed, or just run the script
+    # restart: unless-stopped
+
+    # Placeholder for future services
+    # ai:
+    #   build: ./ai
+    #   ...
+
+    # calling_api:
+    #   build: ./calling_api
+    #   ...
+
+    # web:
+    #   build: ./Web
+    #   ...
