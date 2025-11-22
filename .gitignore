@@ -6,3 +6,4 @@ crawling/.venv/
 calling_api/.venv/
 calling_api/api_log.jsonl
 ai/.venv/
+ai/models/
