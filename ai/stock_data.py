@@ -7,9 +7,11 @@ from typing import Dict, List, Optional, Any
 
 
 # === 경로 상수 ===
-SCORES_PATH = Path("../crawling/db/company_scores.json")
-PRICES_PATH = Path("../calling_api/db/all_prices.json")
-LLM_DATA_PATH = Path("../ai/db/for_llm.json")
+# 실행 위치가 어디든, 이 파일(ai/stock_data.py) 기준으로 경로를 찾음
+BASE_DIR = Path(__file__).resolve().parent.parent
+SCORES_PATH = BASE_DIR / "crawling" / "db" / "company_scores.json"
+PRICES_PATH = BASE_DIR / "calling_api" / "db" / "all_prices.json"
+LLM_DATA_PATH = BASE_DIR / "ai" / "db" / "for_llm.json"
 
 
 # === 데이터 모델 ===
@@ -210,23 +212,44 @@ def get_company(
     return companies.get(name)
 
 
+# === 전역 변수 ===
+user_budget: Optional[int] = None
+
+
 def pick_top_companies(
     companies: Dict[str, CompanyData],
     top_n: int = 5,
     min_articles: int = 0,
+    budget: Optional[int] = None,
 ) -> List[CompanyData]:
     """
     점수(score) 기준 상위 N개 종목을 뽑는다.
     - total_articles >= min_articles 조건을 만족하는 종목만 사용
     - score가 None인 종목은 제외
+    - budget이 설정되어 있다면, budget * 0.8 <= price <= budget 인 종목만 포함 (하위 20%)
     """
     filtered: List[CompanyData] = []
+
+    # 전역 변수보다 인자로 들어온 budget 우선 사용
+    target_budget = budget if budget is not None else user_budget
 
     for c in companies.values():
         if c.score is None:
             continue
         if c.total_articles is not None and c.total_articles < min_articles:
             continue
+        
+        # 예산 필터링 (80% ~ 100%)
+        if target_budget is not None:
+            if c.price is None:
+                continue
+            
+            min_price = target_budget * 0.8
+            max_price = target_budget * 1.0
+            
+            if not (min_price <= c.price <= max_price):
+                continue
+
         filtered.append(c)
 
     # score 내림차순 정렬
@@ -256,6 +279,25 @@ def save_llm_json(
     path.parent.mkdir(parents=True, exist_ok=True)  # 디렉토리 없으면 생성
     with path.open("w", encoding="utf-8") as f:
         f.write(json_str)
+
+
+def update_recommendations(budget: int) -> None:
+    """
+    외부(views.py 등)에서 호출하여 추천 리스트를 갱신하는 함수.
+    """
+    global user_budget
+    user_budget = budget
+    
+    # 1. 데이터 로드
+    company_map = load_company_data()
+    
+    # 2. 필터링 (예산 적용)
+    # 기사 수 최소 기준은 상황에 맞춰 조정 (여기선 0 또는 기존 로직 유지)
+    top_companies = pick_top_companies(company_map, top_n=50, min_articles=0, budget=budget)
+    
+    # 3. 저장
+    save_llm_json(top_companies)
+    print(f"추천 리스트 갱신 완료 (예산: {budget}) -> {LLM_DATA_PATH}")
 
 
 if __name__ == "__main__":

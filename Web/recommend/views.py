@@ -1,6 +1,23 @@
 from django.shortcuts import render
 from .kis import get_stock_price
 from .services.llm import ask_invest_ai
+import sys
+import os
+from pathlib import Path
+
+# ai 폴더를 import 하기 위한 경로 설정
+# 현재 파일: Web/recommend/views.py
+# 목표: ai/stock_data.py
+# Web/recommend/views.py -> .../Web/recommend -> .../Web -> .../ (Root) -> ai
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.append(str(BASE_DIR))
+
+try:
+    from ai import stock_data
+except ImportError:
+    stock_data = None
+    print("Warning: ai.stock_data import failed.")
 
 
 def main(request):
@@ -35,9 +52,28 @@ def main(request):
         if "budget_submit" in request.POST:
             raw = request.POST.get("budget_amount", "").replace(",", "").strip()
             if raw.isdigit():
-                budget = int(raw)
-                request.session["budget"] = budget
-                context["budget"] = budget
+                budget_val = int(raw)
+                # 예산 범위 체크: 100원 ~ 100만원
+                if 100 <= budget_val <= 1000000:
+                    budget = budget_val
+                    request.session["budget"] = budget
+                    context["budget"] = budget
+                    
+                    # stock_data 전역 변수에 할당 및 추천 리스트 갱신
+                    if stock_data:
+                        try:
+                            stock_data.user_budget = budget
+                            stock_data.update_recommendations(budget)
+                        except Exception as e:
+                            print(f"Error updating recommendations: {e}")
+                            context["api_error"] = True
+                            context["api_message"] = f"추천 리스트 갱신 중 오류가 발생했습니다: {e}"
+                    else:
+                        context["api_error"] = True
+                        context["api_message"] = "시스템 오류: AI 모듈(stock_data)을 불러올 수 없습니다."
+                else:
+                    context["api_error"] = True
+                    context["api_message"] = "100원~100만원 이내로 입력해 주세요."
             else:
                 context["api_error"] = True
                 context["api_message"] = "예산은 숫자만 입력해 주세요."
@@ -70,7 +106,7 @@ def main(request):
 
         # 3) LLM 질문하기 눌렀을 때
         if "llm_question" in request.POST:
-            # ⭐ 여기부터 전부 if 안으로 들여쓰기 되어 있어야 함 (공백 4칸)
+            # 여기부터 전부 if 안으로 들여쓰기 되어 있어야 함 (공백 4칸)
             question = request.POST.get("llm_question", "").strip()
             stock_name = context.get("stock_name") or ""  # 직전에 검색한 종목명
 

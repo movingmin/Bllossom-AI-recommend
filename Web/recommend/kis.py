@@ -1,5 +1,6 @@
 # recommend/kis.py
 import requests
+from .token_manager import load_token, APP_KEY, APP_SECRET
 import datetime
 
 # === 여기 4개는 네 값으로 바꿔서 쓰기 ===
@@ -2045,14 +2046,17 @@ def get_stock_price(keyword: str):
                 "message": f"'{kw}' 종목은 아직 이름 검색을 지원하지 않습니다. 종목코드(예: 005930)를 입력해 주세요.",
             }
 
+    # ✅ 여기서 토큰 자동으로 가져오기 (하드코딩 안 함)
+    access_token = load_token()
+
     # ---- ① 현재가 조회 ----
     url = f"{BASE_URL}/uapi/domestic-stock/v1/quotations/inquire-price"
 
     headers = {
-        "authorization": f"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0b2tlbiIsImF1ZCI6IjViNDRlYWQxLWY4MzAtNDcxNi04Y2I2LWEyNmY3NjdiN2ViMCIsInByZHRfY2QiOiIiLCJpc3MiOiJ1bm9ndyIsImV4cCI6MTc2MzYyMDUwOSwiaWF0IjoxNzYzNTM0MTA5LCJqdGkiOiJQU2ZLRUVtWVdobU9ObUh1VE9HeEtmRGN1ZTROc1ZDZU1KWkUifQ.OEDYGAD6q6YobqsB18YsFUfh1wxff772GUdy1ixEt1DEcsIKMzlLcJI7pgd64jK7iL8qemP0smXUMxxrPUidYA",
-        "appkey": "PSfKEEmYWhmONmHuTOGxKfDcue4NsVCeMJZE",
-        "appsecret": "VSXnfPwJdEW81zQV5A6Giwf+Plq0czrO/9mMrdgdgwcN7Mds5ah/lILSNF9M/JnO4bleBmkcQEPTP109I6PZ4ru/DhZ55r/mTYg9jLfsBPvEJ/URyb4dGEYaNq2CoJeGEmViRzYOboVFhUCHfDI49L2aHs2Ky3U44TzP988h2I7HfyPK8MU=",
-        "tr_id": "FHKST01010100", 
+        "authorization": f"Bearer {access_token}",  # ← 자동 토큰
+        "appkey": "PSfKEEmYWhmONmHuTOGxKfDcue4NsVCeMJZE",                           # ← token_manager의 하드코딩 값
+        "appsecret": "VSXnfPwJdEW81zQV5A6Giwf+Plq0czrO/9mMrdgdgwcN7Mds5ah/lILSNF9M/JnO4bleBmkcQEPTP109I6PZ4ru/DhZ55r/mTYg9jLfsBPvEJ/URyb4dGEYaNq2CoJeGEmViRzYOboVFhUCHfDI49L2aHs2Ky3U44TzP988h2I7HfyPK8MU=",                     # ← token_manager의 하드코딩 값
+        "tr_id": "FHKST01010100",                    # 모의투자는 VTTC9102R 같은 걸로 변경
         "custtype": "P",
     }
 
