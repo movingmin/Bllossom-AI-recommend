@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8" />
     <title>AI 주식 투자 시뮬레이터</title>
@@ -9,23 +10,31 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             background: #f5f7fb;
             color: #111827;
         }
+
         .page-wrap {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 24px 40px;
         }
+
         .page-header {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 24px;
         }
+
         .page-header-icon {
             width: 40px;
             height: 40px;
@@ -37,10 +46,12 @@
             color: #fff;
             font-weight: 800;
         }
+
         .page-header-title {
             font-size: 22px;
             font-weight: 700;
         }
+
         .page-header-sub {
             font-size: 13px;
             color: #6b7280;
@@ -60,12 +71,14 @@
             box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
             padding: 20px 22px;
         }
+
         .card-header {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 14px;
         }
+
         .card-header-icon {
             width: 34px;
             height: 34px;
@@ -76,10 +89,12 @@
             justify-content: center;
             font-size: 18px;
         }
+
         .card-header-title {
             font-size: 16px;
             font-weight: 700;
         }
+
         .card-header-sub {
             font-size: 12px;
             color: #6b7280;
@@ -91,6 +106,7 @@
             flex-direction: column;
             gap: 18px;
         }
+
         .ai-risk-badge {
             display: inline-flex;
             align-items: center;
@@ -102,21 +118,25 @@
             font-size: 11px;
             font-weight: 600;
         }
+
         .ai-risk-dot {
             width: 6px;
             height: 6px;
             border-radius: 999px;
             background: #22c55e;
         }
+
         .ai-description {
             font-size: 13px;
             color: #4b5563;
             line-height: 1.5;
             margin-top: 4px;
         }
+
         .ai-usage-section {
             margin-top: 10px;
         }
+
         .ai-usage-label-row {
             display: flex;
             justify-content: space-between;
@@ -124,6 +144,7 @@
             color: #6b7280;
             margin-bottom: 4px;
         }
+
         .ai-usage-bar-wrap {
             width: 100%;
             height: 8px;
@@ -131,6 +152,7 @@
             border-radius: 999px;
             overflow: hidden;
         }
+
         .ai-usage-bar-fill {
             width: 58%;
             height: 100%;
@@ -141,17 +163,20 @@
         .llm-question-section {
             margin-top: 16px;
         }
+
         .llm-question-label {
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 6px;
         }
+
         .llm-input-wrap {
             display: flex;
             align-items: center;
             gap: 8px;
             margin-top: 4px;
         }
+
         .llm-input {
             flex: 1;
             border-radius: 999px;
@@ -161,10 +186,12 @@
             outline: none;
             background: #f9fafb;
         }
+
         .llm-input:focus {
             border-color: #2563eb;
             background: #ffffff;
         }
+
         .llm-btn {
             border-radius: 999px;
             border: none;
@@ -174,6 +201,7 @@
             color: #ffffff;
             cursor: pointer;
         }
+
         .llm-btn:hover {
             background: #020617;
         }
@@ -182,12 +210,14 @@
         .budget-card {
             border: 2px solid #22c55e;
         }
+
         .budget-input-wrap {
             display: flex;
             align-items: center;
             gap: 8px;
             margin-top: 10px;
         }
+
         .budget-input {
             flex: 1;
             border-radius: 999px;
@@ -197,10 +227,12 @@
             outline: none;
             background: #f9fafb;
         }
+
         .budget-input:focus {
             border-color: #22c55e;
             background: #ffffff;
         }
+
         .budget-btn {
             border-radius: 999px;
             border: none;
@@ -211,14 +243,17 @@
             cursor: pointer;
             white-space: nowrap;
         }
+
         .budget-btn:hover {
             background: #1d4ed8;
         }
+
         .budget-current {
             margin-top: 10px;
             font-size: 12px;
             color: #6b7280;
         }
+
         .budget-value {
             display: inline-block;
             margin-top: 4px;
@@ -231,12 +266,14 @@
         .stock-card {
             margin-top: 16px;
         }
+
         .stock-search-box {
             display: flex;
             align-items: center;
             gap: 8px;
             margin-top: 10px;
         }
+
         .stock-search-input {
             flex: 1;
             border-radius: 999px;
@@ -246,10 +283,12 @@
             outline: none;
             background: #f9fafb;
         }
+
         .stock-search-input:focus {
             border-color: #2563eb;
             background: #ffffff;
         }
+
         .stock-search-btn {
             border-radius: 999px;
             border: none;
@@ -260,6 +299,7 @@
             cursor: pointer;
             white-space: nowrap;
         }
+
         .stock-search-btn:hover {
             background: #020617;
         }
@@ -270,38 +310,46 @@
             border-radius: 14px;
             background: linear-gradient(135deg, #eff6ff, #ecfdf3);
         }
+
         .stock-result-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             margin-bottom: 8px;
         }
+
         .stock-result-title {
             font-size: 15px;
             font-weight: 700;
         }
+
         .stock-result-code {
             font-size: 12px;
             color: #6b7280;
         }
+
         .stock-result-body {
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
+
         .stock-price {
             font-size: 20px;
             font-weight: 700;
         }
+
         .stock-price .won {
             font-size: 13px;
             margin-left: 4px;
             color: #6b7280;
         }
+
         .stock-change {
             font-size: 13px;
             color: #16a34a;
         }
+
         .stock-error {
             margin-top: 16px;
             padding: 12px 14px;
@@ -318,147 +366,125 @@
         }
     </style>
 </head>
-<body>
-<div class="page-wrap">
-    <!-- 상단 타이틀 -->
-    <header class="page-header">
-        <div class="page-header-icon">₩</div>
-        <div>
-            <div class="page-header-title">AI 주식 투자 시뮬레이터</div>
-            <div class="page-header-sub">인공지능 기반 스마트 투자 분석 플랫폼</div>
-        </div>
-    </header>
 
-    <!-- 메인 6:4 레이아웃 -->
-    <div class="layout-main">
-        <!-- 왼쪽 : AI 투자 추천 + LLM 질문 -->
-        <div class="card ai-card">
-            <div class="card-header">
-                <div class="card-header-icon">✨</div>
+<body>
+    <div class="page-wrap">
+        <!-- 상단 타이틀 -->
+        <header class="page-header">
+            <div class="page-header-icon">₩</div>
+            <div>
+                <div class="page-header-title">AI 주식 투자 시뮬레이터</div>
+                <div class="page-header-sub">인공지능 기반 스마트 투자 분석 플랫폼</div>
+            </div>
+        </header>
+
+        <!-- 메인 6:4 레이아웃 -->
+        <div class="layout-main">
+            <!-- 왼쪽 : AI 투자 추천 + LLM 질문 -->
+            <div class="card ai-card">
+                <div class="card-header">
+                    <div class="card-header-icon">✨</div>
+                    <div>
+                        <div class="card-header-title">AI 투자 추천</div>
+                        <div class="card-header-sub">실시간 LLM 분석</div>
+                    </div>
+                </div>
+
                 <div>
-                    <div class="card-header-title">AI 투자 추천</div>
-                    <div class="card-header-sub">실시간 LLM 분석</div>
+                    <div class="ai-risk-badge">
+                        <span class="ai-risk-dot"></span>
+                        리스크 수준 <strong>낮음</strong>
+                    </div>
+                    <p class="ai-description">
+                        투자 예산과 관심 있는 주식을 검색하면, AI가 종목 특성과 시세 정보를 분석해
+                        투자 전략에 대한 인사이트를 제공합니다.
+                    </p>
+
+                    <!-- LLM 질문 입력 -->
+                    <div class="llm-question-section">
+                        <div class="llm-question-label">AI에게 질문하기</div>
+                        <form method="post" action="{% url 'main' %}">
+                            {% csrf_token %}
+                            <div class="llm-input-wrap">
+                                <input type="text" name="llm_question" class="llm-input"
+                                    placeholder="예: 현재 삼성전자 투자 전략이 궁금해요" />
+                                <button type="submit" class="llm-btn">
+                                    질문하기
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- LLM 답변 영역 추가 -->
+                        {% if ai_answer %}
+                        <div style="margin-top: 12px; padding: 12px 14px; border-radius: 12px;
+                                background: #f9fafb; font-size: 13px; line-height: 1.7;
+                                white-space: pre-wrap; color: #111827;">
+                            {{ ai_answer }}
+                        </div>
+                        {% endif %}
+                        <!-- /LLM 답변 영역 -->
+                    </div>
                 </div>
             </div>
 
+            <!-- 오른쪽 : 예산 설정 + 주식 검색/결과 -->
             <div>
-                <div class="ai-risk-badge">
-                    <span class="ai-risk-dot"></span>
-                    리스크 수준 <strong>낮음</strong>
-                </div>
-                <p class="ai-description">
-                    투자 예산과 관심 있는 주식을 검색하면, AI가 종목 특성과 시세 정보를 분석해
-                    투자 전략에 대한 인사이트를 제공합니다.
-                </p>
-
-                <div class="ai-usage-section">
-                    <div class="ai-usage-label-row">
-                        <span>AI 사용량</span>
-                        <span>58%</span>
+                <!-- 예산 카드 -->
+                <div class="card budget-card">
+                    <div class="card-header">
+                        <div class="card-header-icon">💰</div>
+                        <div>
+                            <div class="card-header-title">투자 예산 설정</div>
+                            <div class="card-header-sub">투자 가능한 금액을 입력하세요</div>
+                        </div>
                     </div>
-                    <div class="ai-usage-bar-wrap">
-                        <div class="ai-usage-bar-fill"></div>
-                    </div>
-                </div>
 
-                <!-- LLM 질문 입력 -->
-                <div class="llm-question-section">
-                    <div class="llm-question-label">AI에게 질문하기</div>
                     <form method="post" action="{% url 'main' %}">
                         {% csrf_token %}
-                        <div class="llm-input-wrap">
-                            <input
-                                type="text"
-                                name="llm_question"
-                                class="llm-input"
-                                placeholder="예: 현재 삼성전자 투자 전략이 궁금해요"
-                            />
-                            <button type="submit" class="llm-btn">
-                                질문하기
+                        <div class="budget-input-wrap">
+                            <input type="text" name="budget_amount" class="budget-input" placeholder="예: 1000000"
+                                value="{{ budget|default:'' }}" />
+                            <button type="submit" name="budget_submit" class="budget-btn">
+                                예산 설정
+                            </button>
+                        </div>
+
+                        <div class="budget-current">
+                            현재 설정된 예산<br />
+                            <span class="budget-value">
+                                ₩{{ budget|default:0 }}
+                            </span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 주식 검색 카드 -->
+                <div class="card stock-card">
+                    <div class="card-header">
+                        <div class="card-header-icon">🔍</div>
+                        <div>
+                            <div class="card-header-title">주식 검색</div>
+                            <div class="card-header-sub">종목 코드 또는 이름을 검색해 보세요</div>
+                        </div>
+                    </div>
+
+                    <form method="post" action="{% url 'main' %}">
+                        {% csrf_token %}
+                        <div class="stock-search-box">
+                            <input type="text" name="stock_keyword" class="stock-search-input"
+                                placeholder="예: 005930, 삼성전자" />
+                            <button type="submit" name="stock_search" class="stock-search-btn">
+                                검색
                             </button>
                         </div>
                     </form>
 
-                    <!-- LLM 답변 영역 추가 -->
-                    {% if ai_answer %}
-                    <div style="margin-top: 12px; padding: 12px 14px; border-radius: 12px;
-                                background: #f9fafb; font-size: 13px; line-height: 1.7;
-                                white-space: pre-wrap; color: #111827;">
-                        {{ ai_answer }}
-                    </div>
-                    {% endif %}
-                    <!-- /LLM 답변 영역 -->
-                </div>
-            </div>
-        </div>
-
-        <!-- 오른쪽 : 예산 설정 + 주식 검색/결과 -->
-        <div>
-            <!-- 예산 카드 -->
-            <div class="card budget-card">
-                <div class="card-header">
-                    <div class="card-header-icon">💰</div>
-                    <div>
-                        <div class="card-header-title">투자 예산 설정</div>
-                        <div class="card-header-sub">투자 가능한 금액을 입력하세요</div>
-                    </div>
-                </div>
-
-                <form method="post" action="{% url 'main' %}">
-                    {% csrf_token %}
-                    <div class="budget-input-wrap">
-                        <input
-                            type="text"
-                            name="budget_amount"
-                            class="budget-input"
-                            placeholder="예: 1000000"
-                            value="{{ budget|default:'' }}"
-                        />
-                        <button type="submit" name="budget_submit" class="budget-btn">
-                            예산 설정
-                        </button>
-                    </div>
-
-                    <div class="budget-current">
-                        현재 설정된 예산<br />
-                        <span class="budget-value">
-                            ₩{{ budget|default:0 }}
-                        </span>
-                    </div>
-                </form>
-            </div>
-
-            <!-- 주식 검색 카드 -->
-            <div class="card stock-card">
-                <div class="card-header">
-                    <div class="card-header-icon">🔍</div>
-                    <div>
-                        <div class="card-header-title">주식 검색</div>
-                        <div class="card-header-sub">종목 코드 또는 이름을 검색해 보세요</div>
-                    </div>
-                </div>
-
-                <form method="post" action="{% url 'main' %}">
-                    {% csrf_token %}
-                    <div class="stock-search-box">
-                        <input
-                            type="text"
-                            name="stock_keyword"
-                            class="stock-search-input"
-                            placeholder="예: 005930"
-                        />
-                        <button type="submit" name="stock_search" class="stock-search-btn">
-                            검색
-                        </button>
-                    </div>
-                </form>
-
-                <!-- 검색 결과 / 에러 영역 -->
-                {% if api_error %}
+                    <!-- 검색 결과 / 에러 영역 -->
+                    {% if api_error %}
                     <div class="stock-error">
                         {{ api_message }}
                     </div>
-                {% elif stock_name %}
+                    {% elif stock_name %}
                     <div class="stock-result-card">
                         <div class="stock-result-header">
                             <span class="stock-result-title">{{ stock_name }}</span>
@@ -475,98 +501,100 @@
                         </div>
 
                         {% if open_price %}
-                            <div style="margin-top: 10px; font-size: 12px; color: #374151;">
-                                시가 {{ open_price }} / 고가 {{ high_price }} /
-                                저가 {{ low_price }} / 거래량 {{ volume }}
-                            </div>
+                        <div style="margin-top: 10px; font-size: 12px; color: #374151;">
+                            시가 {{ open_price }} / 고가 {{ high_price }} /
+                            저가 {{ low_price }} / 거래량 {{ volume }}
+                        </div>
                         {% endif %}
 
                         <!-- 차트 -->
-                        <div style="margin-top: 12px; background: rgba(255,255,255,0.7); border-radius: 10px; padding: 8px; height: 220px;">
+                        <div
+                            style="margin-top: 12px; background: rgba(255,255,255,0.7); border-radius: 10px; padding: 8px; height: 220px;">
                             <canvas id="stockChart"></canvas>
                         </div>
                         <div style="margin-top: 4px; font-size: 11px; color: #6b7280; text-align: right;">
                             x축: 날짜 · y축: 종가(원)
                         </div>
                     </div>
-                {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-{# ===== 차트 스크립트 (데이터 있을 때만) ===== #}
-{% if stock_name and chart_labels and chart_prices %}
-<script>
-    const chartLabels = {{ chart_labels|safe }};
-    const chartPrices = {{ chart_prices|safe }};
+    {# ===== 차트 스크립트 (데이터 있을 때만) ===== #}
+    {% if stock_name and chart_labels and chart_prices %}
+    <script>
+        const chartLabels = {{ chart_labels| safe }};
+        const chartPrices = {{ chart_prices| safe }};
 
-    const ctx = document.getElementById("stockChart").getContext("2d");
+        const ctx = document.getElementById("stockChart").getContext("2d");
 
-    new Chart(ctx, {
-        type: "line",
-        data: {
-            labels: chartLabels,
-            datasets: [{
-                label: "종가(원)",
-                data: chartPrices,
-                borderWidth: 2,
-                tension: 0.3,
-                pointRadius: 0,
-                fill: true,
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: {
-                        title: (items) => "날짜: " + items[0].label,
-                        label: (item) =>
-                            "가격: " + item.parsed.y.toLocaleString() + "원",
-                    }
-                }
+        new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: chartLabels,
+                datasets: [{
+                    label: "종가(원)",
+                    data: chartPrices,
+                    borderWidth: 2,
+                    tension: 0.3,
+                    pointRadius: 0,
+                    fill: true,
+                }]
             },
-            layout: {
-                padding: { top: 6, right: 8, bottom: 4, left: 8 },
-            },
-            scales: {
-                x: {
-                    display: true,
-                    grid: { display: true },
-                    ticks: {
-                        autoSkip: true,
-                        maxTicksLimit: 5,
-                        callback: (value, index) => {
-                            const label = chartLabels[index] || "";
-                            // YYYY-MM-DD -> MM-DD만 표시
-                            return label.length >= 5 ? label.slice(5) : label;
-                        },
-                    },
-                    title: {
-                        display: true,
-                        text: "날짜",
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: (items) => "날짜: " + items[0].label,
+                            label: (item) =>
+                                "가격: " + item.parsed.y.toLocaleString() + "원",
+                        }
                     }
                 },
-                y: {
-                    display: true,
-                    grid: { display: true },
-                    ticks: {
+                layout: {
+                    padding: { top: 6, right: 8, bottom: 4, left: 8 },
+                },
+                scales: {
+                    x: {
                         display: true,
-                        maxTicksLimit: 5,
-                        callback: (value) => value.toLocaleString() + "원",
+                        grid: { display: true },
+                        ticks: {
+                            autoSkip: true,
+                            maxTicksLimit: 5,
+                            callback: (value, index) => {
+                                const label = chartLabels[index] || "";
+                                // YYYY-MM-DD -> MM-DD만 표시
+                                return label.length >= 5 ? label.slice(5) : label;
+                            },
+                        },
+                        title: {
+                            display: true,
+                            text: "날짜",
+                        }
                     },
-                    title: {
-                        display: false,  // 제목은 숨김
-                    },
-                    beginAtZero: false,
+                    y: {
+                        display: true,
+                        grid: { display: true },
+                        ticks: {
+                            display: true,
+                            maxTicksLimit: 5,
+                            callback: (value) => value.toLocaleString() + "원",
+                        },
+                        title: {
+                            display: false,  // 제목은 숨김
+                        },
+                        beginAtZero: false,
+                    }
                 }
             }
-        }
-    });
-</script>
-{% endif %}
+        });
+    </script>
+    {% endif %}
 </body>
+
 </html>

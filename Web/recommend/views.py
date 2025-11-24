@@ -105,15 +105,15 @@ def main(request):
                 context["api_message"] = "종목 코드 또는 이름을 입력해 주세요."
 
         # 3) LLM 질문하기 눌렀을 때
-        if "llm_question" in request.POST:
-            # 여기부터 전부 if 안으로 들여쓰기 되어 있어야 함 (공백 4칸)
-            question = request.POST.get("llm_question", "").strip()
-            stock_name = context.get("stock_name") or ""  # 직전에 검색한 종목명
+        # if "llm_question" in request.POST:
+        #     # 여기부터 전부 if 안으로 들여쓰기 되어 있어야 함 (공백 4칸)
+        #     question = request.POST.get("llm_question", "").strip()
+        #     stock_name = context.get("stock_name") or ""  # 직전에 검색한 종목명
 
-            if question:
-                context["ai_answer"] = ask_invest_ai(question, stock_name=stock_name)
-            else:
-                context["api_error"] = True
-                context["api_message"] = "AI에게 물어볼 내용을 입력해 주세요."
+        #     if question:
+        #         context["ai_answer"] = ask_invest_ai(question, stock_name=stock_name)
+        #     else:
+        #         context["api_error"] = True
+        #         context["api_message"] = "AI에게 물어볼 내용을 입력해 주세요."
 
     return render(request, "recommend/main.html", context)
