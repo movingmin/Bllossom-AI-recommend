@@ -1,452 +1,326 @@
 [
   {
-    "name": "태웅로직스",
-    "score": 33,
-    "positive": 33,
+    "name": "코웨이",
+    "score": 30,
+    "positive": 30,
+    "negative": 0,
+    "neutral": 20,
+    "total_articles": 50,
+    "price": 87500.0
+  },
+  {
+    "name": "한전기술",
+    "score": 25,
+    "positive": 25,
     "negative": 0,
     "neutral": 17,
-    "total_articles": 50,
-    "price": 2750.0
+    "total_articles": 42,
+    "price": 91500.0
   },
   {
-    "name": "한울소재과학",
-    "score": 30,
-    "positive": 31,
-    "negative": 1,
-    "neutral": 18,
+    "name": "HD현대마린엔진",
+    "score": 25,
+    "positive": 29,
+    "negative": 4,
+    "neutral": 17,
     "total_articles": 50,
-    "price": 2710.0
+    "price": 81200.0
   },
   {
-    "name": "SCL사이언스",
-    "score": 29,
-    "positive": 30,
-    "negative": 1,
-    "neutral": 19,
-    "total_articles": 50,
-    "price": 2470.0
-  },
-  {
-    "name": "아이엘",
-    "score": 28,
-    "positive": 28,
-    "negative": 0,
+    "name": "S-Oil",
+    "score": 24,
+    "positive": 26,
+    "negative": 2,
     "neutral": 22,
     "total_articles": 50,
-    "price": 2530.0
+    "price": 89400.0
   },
   {
-    "name": "차백신연구소",
-    "score": 27,
-    "positive": 28,
-    "negative": 1,
-    "neutral": 21,
-    "total_articles": 50,
-    "price": 2745.0
-  },
-  {
-    "name": "HLB제넥스",
-    "score": 24,
-    "positive": 25,
-    "negative": 1,
-    "neutral": 24,
-    "total_articles": 50,
-    "price": 2885.0
-  },
-  {
-    "name": "무림P&P",
-    "score": 22,
-    "positive": 27,
-    "negative": 5,
-    "neutral": 18,
-    "total_articles": 50,
-    "price": 2505.0
-  },
-  {
-    "name": "현대ADM",
+    "name": "유진테크",
     "score": 22,
     "positive": 25,
     "negative": 3,
-    "neutral": 19,
-    "total_articles": 47,
-    "price": 2570.0
-  },
-  {
-    "name": "알체라",
-    "score": 22,
-    "positive": 24,
-    "negative": 2,
-    "neutral": 19,
-    "total_articles": 45,
-    "price": 2450.0
-  },
-  {
-    "name": "세아메카닉스",
-    "score": 22,
-    "positive": 23,
-    "negative": 1,
-    "neutral": 13,
-    "total_articles": 37,
-    "price": 2655.0
-  },
-  {
-    "name": "코데즈컴바인",
-    "score": 20,
-    "positive": 22,
-    "negative": 2,
-    "neutral": 14,
-    "total_articles": 38,
-    "price": 2895.0
-  },
-  {
-    "name": "엑스페릭스",
-    "score": 19,
-    "positive": 26,
-    "negative": 7,
-    "neutral": 17,
-    "total_articles": 50,
-    "price": 2915.0
-  },
-  {
-    "name": "신라젠",
-    "score": 18,
-    "positive": 26,
-    "negative": 8,
-    "neutral": 16,
-    "total_articles": 50,
-    "price": 2810.0
-  },
-  {
-    "name": "피엔케이피부임상연구센타",
-    "score": 18,
-    "positive": 19,
-    "negative": 1,
-    "neutral": 20,
-    "total_articles": 40,
-    "price": 2505.0
-  },
-  {
-    "name": "동국산업",
-    "score": 17,
-    "positive": 19,
-    "negative": 2,
-    "neutral": 15,
-    "total_articles": 36,
-    "price": 2835.0
-  },
-  {
-    "name": "에이티넘인베스트",
-    "score": 14,
-    "positive": 15,
-    "negative": 1,
-    "neutral": 29,
-    "total_articles": 45,
-    "price": 2680.0
-  },
-  {
-    "name": "와이제이링크",
-    "score": 14,
-    "positive": 19,
-    "negative": 5,
-    "neutral": 17,
-    "total_articles": 41,
-    "price": 2545.0
-  },
-  {
-    "name": "지앤비에스 에코",
-    "score": 14,
-    "positive": 14,
-    "negative": 0,
     "neutral": 8,
-    "total_articles": 22,
-    "price": 2710.0
+    "total_articles": 36,
+    "price": 83200.0
   },
   {
-    "name": "코리아나",
+    "name": "미원화학",
+    "score": 20,
+    "positive": 23,
+    "negative": 3,
+    "neutral": 24,
+    "total_articles": 50,
+    "price": 85700.0
+  },
+  {
+    "name": "영원무역",
+    "score": 18,
+    "positive": 23,
+    "negative": 5,
+    "neutral": 22,
+    "total_articles": 50,
+    "price": 85100.0
+  },
+  {
+    "name": "케이아이엔엑스",
+    "score": 17,
+    "positive": 25,
+    "negative": 8,
+    "neutral": 14,
+    "total_articles": 47,
+    "price": 85800.0
+  },
+  {
+    "name": "농심홀딩스",
+    "score": 16,
+    "positive": 19,
+    "negative": 3,
+    "neutral": 28,
+    "total_articles": 50,
+    "price": 95800.0
+  },
+  {
+    "name": "지투지바이오",
+    "score": 15,
+    "positive": 16,
+    "negative": 1,
+    "neutral": 22,
+    "total_articles": 39,
+    "price": 93300.0
+  },
+  {
+    "name": "종근당",
+    "score": 14,
+    "positive": 26,
+    "negative": 12,
+    "neutral": 12,
+    "total_articles": 50,
+    "price": 86200.0
+  },
+  {
+    "name": "ISC",
     "score": 13,
     "positive": 18,
     "negative": 5,
-    "neutral": 9,
-    "total_articles": 32,
-    "price": 2400.0
-  },
-  {
-    "name": "테라젠이텍스",
-    "score": 13,
-    "positive": 21,
-    "negative": 8,
-    "neutral": 11,
-    "total_articles": 40,
-    "price": 2720.0
-  },
-  {
-    "name": "알서포트",
-    "score": 13,
-    "positive": 17,
-    "negative": 4,
-    "neutral": 29,
+    "neutral": 27,
     "total_articles": 50,
-    "price": 2590.0
+    "price": 88000.0
   },
   {
-    "name": "유화증권",
-    "score": 11,
-    "positive": 17,
-    "negative": 6,
-    "neutral": 11,
-    "total_articles": 34,
-    "price": 2785.0
-  },
-  {
-    "name": "나노",
-    "score": 11,
-    "positive": 13,
-    "negative": 2,
-    "neutral": 4,
-    "total_articles": 19,
-    "price": 2625.0
-  },
-  {
-    "name": "동방",
-    "score": 10,
+    "name": "HD현대건설기계",
+    "score": 12,
     "positive": 14,
-    "negative": 4,
-    "neutral": 20,
-    "total_articles": 38,
-    "price": 2765.0
-  },
-  {
-    "name": "티와이홀딩스",
-    "score": 10,
-    "positive": 17,
-    "negative": 7,
-    "neutral": 26,
+    "negative": 2,
+    "neutral": 34,
     "total_articles": 50,
-    "price": 2560.0
+    "price": 92300.0
   },
   {
-    "name": "중앙첨단소재",
+    "name": "코미코",
     "score": 10,
     "positive": 17,
     "negative": 7,
-    "neutral": 7,
-    "total_articles": 31,
-    "price": 2755.0
+    "neutral": 11,
+    "total_articles": 35,
+    "price": 88400.0
   },
   {
-    "name": "서울바이오시스",
-    "score": 10,
-    "positive": 20,
-    "negative": 10,
-    "neutral": 9,
-    "total_articles": 39,
-    "price": 2565.0
+    "name": "LG",
+    "score": 9,
+    "positive": 10,
+    "negative": 1,
+    "neutral": 39,
+    "total_articles": 50,
+    "price": 80600.0
   },
   {
-    "name": "지에스이",
+    "name": "KODEX 장기종합채권(AA-이상)액티브",
     "score": 9,
     "positive": 9,
     "negative": 0,
-    "neutral": 7,
-    "total_articles": 16,
-    "price": 2550.0
+    "neutral": 9,
+    "total_articles": 18,
+    "price": 97600.0
   },
   {
-    "name": "KODEX 인버스",
+    "name": "LG전자",
     "score": 8,
-    "positive": 9,
-    "negative": 1,
-    "neutral": 40,
-    "total_articles": 50,
-    "price": 2630.0
-  },
-  {
-    "name": "KTcs",
-    "score": 6,
     "positive": 10,
-    "negative": 4,
-    "neutral": 22,
-    "total_articles": 36,
-    "price": 2925.0
+    "negative": 2,
+    "neutral": 38,
+    "total_articles": 50,
+    "price": 87300.0
   },
   {
-    "name": "우수AMS",
+    "name": "ACE 우량회사채(AA-이상)액티브",
+    "score": 7,
+    "positive": 7,
+    "negative": 0,
+    "neutral": 43,
+    "total_articles": 50,
+    "price": 99680.0
+  },
+  {
+    "name": "더존비즈온",
+    "score": 7,
+    "positive": 13,
+    "negative": 6,
+    "neutral": 24,
+    "total_articles": 43,
+    "price": 94700.0
+  },
+  {
+    "name": "디앤디파마텍",
+    "score": 7,
+    "positive": 9,
+    "negative": 2,
+    "neutral": 23,
+    "total_articles": 34,
+    "price": 88700.0
+  },
+  {
+    "name": "한화",
+    "score": 6,
+    "positive": 7,
+    "negative": 1,
+    "neutral": 35,
+    "total_articles": 43,
+    "price": 84800.0
+  },
+  {
+    "name": "롯데케미칼",
+    "score": 6,
+    "positive": 12,
+    "negative": 6,
+    "neutral": 32,
+    "total_articles": 50,
+    "price": 80000.0
+  },
+  {
+    "name": "CJ우",
     "score": 5,
     "positive": 7,
     "negative": 2,
-    "neutral": 23,
-    "total_articles": 32,
-    "price": 2600.0
+    "neutral": 6,
+    "total_articles": 15,
+    "price": 95500.0
   },
   {
-    "name": "프레스티지바이오로직스",
+    "name": "삼성전기우",
     "score": 5,
-    "positive": 11,
-    "negative": 6,
-    "neutral": 15,
-    "total_articles": 32,
-    "price": 2945.0
-  },
-  {
-    "name": "노을",
-    "score": 4,
-    "positive": 16,
-    "negative": 12,
-    "neutral": 16,
-    "total_articles": 44,
-    "price": 2585.0
-  },
-  {
-    "name": "한국자산신탁",
-    "score": 3,
-    "positive": 6,
-    "negative": 3,
-    "neutral": 28,
-    "total_articles": 37,
-    "price": 2415.0
-  },
-  {
-    "name": "모비스",
-    "score": 3,
-    "positive": 3,
+    "positive": 5,
     "negative": 0,
     "neutral": 0,
-    "total_articles": 3,
-    "price": 2725.0
+    "total_articles": 5,
+    "price": 99800.0
   },
   {
-    "name": "GRT",
+    "name": "하나금융지주",
+    "score": 5,
+    "positive": 5,
+    "negative": 0,
+    "neutral": 45,
+    "total_articles": 50,
+    "price": 91900.0
+  },
+  {
+    "name": "에코프로",
+    "score": 5,
+    "positive": 5,
+    "negative": 0,
+    "neutral": 28,
+    "total_articles": 33,
+    "price": 83100.0
+  },
+  {
+    "name": "한진칼",
+    "score": 4,
+    "positive": 6,
+    "negative": 2,
+    "neutral": 42,
+    "total_articles": 50,
+    "price": 97500.0
+  },
+  {
+    "name": "풍산",
     "score": 3,
-    "positive": 12,
-    "negative": 9,
-    "neutral": 10,
-    "total_articles": 31,
-    "price": 2765.0
+    "positive": 15,
+    "negative": 12,
+    "neutral": 11,
+    "total_articles": 38,
+    "price": 99600.0
   },
   {
-    "name": "세운메디칼",
+    "name": "TIGER 28-04 회사채(A+이상)액티브",
+    "score": 2,
+    "positive": 2,
+    "negative": 0,
+    "neutral": 30,
+    "total_articles": 32,
+    "price": 99115.0
+  },
+  {
+    "name": "E1",
+    "score": 0,
+    "positive": 6,
+    "negative": 6,
+    "neutral": 38,
+    "total_articles": 50,
+    "price": 85000.0
+  },
+  {
+    "name": "조선선재",
+    "score": 0,
+    "positive": 2,
+    "negative": 2,
+    "neutral": 32,
+    "total_articles": 36,
+    "price": 97100.0
+  },
+  {
+    "name": "ACE 국고채10년",
     "score": 0,
     "positive": 0,
     "negative": 0,
-    "neutral": 4,
-    "total_articles": 4,
-    "price": 2440.0
+    "neutral": 1,
+    "total_articles": 1,
+    "price": 89005.0
   },
   {
-    "name": "정다운",
-    "score": 0,
-    "positive": 0,
-    "negative": 0,
-    "neutral": 12,
-    "total_articles": 12,
-    "price": 2695.0
-  },
-  {
-    "name": "경인양행",
+    "name": "이마트",
     "score": -1,
     "positive": 4,
     "negative": 5,
-    "neutral": 9,
-    "total_articles": 18,
-    "price": 2810.0
-  },
-  {
-    "name": "동원개발",
-    "score": -1,
-    "positive": 2,
-    "negative": 3,
-    "neutral": 27,
-    "total_articles": 32,
-    "price": 2580.0
-  },
-  {
-    "name": "아진산업",
-    "score": -1,
-    "positive": 5,
-    "negative": 6,
-    "neutral": 23,
-    "total_articles": 34,
-    "price": 2745.0
-  },
-  {
-    "name": "오리엔트정공",
-    "score": -1,
-    "positive": 6,
-    "negative": 7,
-    "neutral": 27,
-    "total_articles": 40,
-    "price": 2430.0
-  },
-  {
-    "name": "KODEX 코스닥150선물인버스",
-    "score": -2,
-    "positive": 0,
-    "negative": 2,
-    "neutral": 42,
-    "total_articles": 44,
-    "price": 2915.0
-  },
-  {
-    "name": "베뉴지",
-    "score": -2,
-    "positive": 2,
-    "negative": 4,
-    "neutral": 22,
-    "total_articles": 28,
-    "price": 2435.0
-  },
-  {
-    "name": "HC보광산업",
-    "score": -2,
-    "positive": 9,
-    "negative": 11,
-    "neutral": 10,
-    "total_articles": 30,
-    "price": 2800.0
-  },
-  {
-    "name": "제이알글로벌리츠",
-    "score": -3,
-    "positive": 4,
-    "negative": 7,
-    "neutral": 26,
-    "total_articles": 37,
-    "price": 2970.0
-  },
-  {
-    "name": "하림",
-    "score": -3,
-    "positive": 7,
-    "negative": 10,
-    "neutral": 27,
-    "total_articles": 44,
-    "price": 2925.0
-  },
-  {
-    "name": "에스와이",
-    "score": -5,
-    "positive": 9,
-    "negative": 14,
-    "neutral": 22,
+    "neutral": 36,
     "total_articles": 45,
-    "price": 2865.0
+    "price": 80400.0
   },
   {
-    "name": "쇼박스",
-    "score": -11,
-    "positive": 4,
-    "negative": 15,
-    "neutral": 31,
+    "name": "현대백화점",
+    "score": -2,
+    "positive": 3,
+    "negative": 5,
+    "neutral": 42,
     "total_articles": 50,
-    "price": 2455.0
+    "price": 93600.0
   },
   {
-    "name": "파멥신",
-    "score": -19,
-    "positive": 4,
-    "negative": 23,
-    "neutral": 12,
-    "total_articles": 39,
-    "price": 2915.0
+    "name": "CJ대한통운",
+    "score": -4,
+    "positive": 7,
+    "negative": 11,
+    "neutral": 32,
+    "total_articles": 50,
+    "price": 93900.0
+  },
+  {
+    "name": "한국기업평가",
+    "score": -6,
+    "positive": 6,
+    "negative": 12,
+    "neutral": 16,
+    "total_articles": 34,
+    "price": 98800.0
   }
 ]

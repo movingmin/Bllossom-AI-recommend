@@ -133,31 +133,33 @@
             margin-top: 4px;
         }
 
-        .ai-usage-section {
-            margin-top: 10px;
-        }
-
-        .ai-usage-label-row {
+        /* 로봇 블럭 */
+        .ai-robot-wrap {
+            margin-top: 14px;
+            padding: 10px 12px;
+            border-radius: 12px;
+            background: #f9fafb;
             display: flex;
-            justify-content: space-between;
-            font-size: 11px;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-robot-icon {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+        }
+
+        .ai-robot-text-main {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .ai-robot-text-sub {
+            font-size: 20px;
             color: #6b7280;
-            margin-bottom: 4px;
-        }
-
-        .ai-usage-bar-wrap {
-            width: 100%;
-            height: 8px;
-            background: #e5e7eb;
-            border-radius: 999px;
-            overflow: hidden;
-        }
-
-        .ai-usage-bar-fill {
-            width: 58%;
-            height: 100%;
-            border-radius: 999px;
-            background: linear-gradient(90deg, #2563eb, #22c55e);
+            margin-top: 2px;
         }
 
         .llm-question-section {
@@ -386,19 +388,51 @@
                     <div class="card-header-icon">✨</div>
                     <div>
                         <div class="card-header-title">AI 투자 추천</div>
-                        <div class="card-header-sub">실시간 LLM 분석</div>
+                        <div class="card-header-sub"></div>
                     </div>
                 </div>
 
                 <div>
                     <div class="ai-risk-badge">
                         <span class="ai-risk-dot"></span>
-                        리스크 수준 <strong>낮음</strong>
+                        <strong>투자의 책임은 본인에게 있습니다.</strong>
                     </div>
                     <p class="ai-description">
-                        투자 예산과 관심 있는 주식을 검색하면, AI가 종목 특성과 시세 정보를 분석해
-                        투자 전략에 대한 인사이트를 제공합니다.
+                        본 서비스의 AI 분석 결과는 투자 참고용이며, 실제 투자 결정과 손실에 대한 책임은 투자자 본인에게 있습니다.
                     </p>
+
+                    <!-- 로봇 일러스트 영역 -->
+                    <div class="ai-robot-wrap">
+                        <div class="ai-robot-icon">
+                            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                                <!-- 머리 -->
+                                <rect x="18" y="18" width="44" height="32" rx="10" fill="#e5f0ff" />
+                                <!-- 얼굴 테두리 -->
+                                <rect x="20" y="20" width="40" height="28" rx="8" fill="#ffffff" />
+                                <!-- 눈 -->
+                                <circle cx="32" cy="32" r="4" fill="#2563eb" />
+                                <circle cx="48" cy="32" r="4" fill="#2563eb" />
+                                <!-- 입 -->
+                                <rect x="30" y="40" width="20" height="3" rx="1.5" fill="#9ca3af" />
+                                <!-- 몸통 -->
+                                <rect x="26" y="48" width="28" height="18" rx="8" fill="#d1fae5" />
+                                <!-- 버튼 -->
+                                <circle cx="34" cy="57" r="2.5" fill="#34d399" />
+                                <circle cx="46" cy="57" r="2.5" fill="#22c55e" />
+                                <!-- 안테나 -->
+                                <line x1="40" y1="14" x2="40" y2="20" stroke="#9ca3af" stroke-width="2" />
+                                <circle cx="40" cy="12" r="3" fill="#facc15" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="ai-robot-text-main">
+                                AI 로봇이 투자 분석을 도와드립니다 🤖
+                            </div>
+                            <div class="ai-robot-text-sub">
+
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- LLM 질문 입력 -->
                     <div class="llm-question-section">
@@ -406,8 +440,7 @@
                         <form method="post" action="{% url 'main' %}">
                             {% csrf_token %}
                             <div class="llm-input-wrap">
-                                <input type="text" name="llm_question" class="llm-input"
-                                    placeholder="예: 현재 삼성전자 투자 전략이 궁금해요" />
+                                <input type="text" name="llm_question" class="llm-input" placeholder="" />
                                 <button type="submit" class="llm-btn">
                                     질문하기
                                 </button>
@@ -472,7 +505,7 @@
                         {% csrf_token %}
                         <div class="stock-search-box">
                             <input type="text" name="stock_keyword" class="stock-search-input"
-                                placeholder="예: 005930, 삼성전자" />
+                                placeholder="예: 005930" />
                             <button type="submit" name="stock_search" class="stock-search-btn">
                                 검색
                             </button>
