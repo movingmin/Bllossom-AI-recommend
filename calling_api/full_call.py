@@ -106,13 +106,14 @@ def main():
 
         rec = call_api(code)
         if rec is not None:
+            rec["company"] = name
             results.append(rec)
 
         logging.info("다음 종목까지 %.1f초 대기", SLEEP_BETWEEN_CALLS)
         time.sleep(SLEEP_BETWEEN_CALLS)
 
     # 여기서 한 번에 JSON 배열로 저장
-    with open(os.path.join(DB_DIR, "all_prices_noname.json"), "w", encoding="utf-8") as f:
+    with open(os.path.join(DB_DIR, "all_prices.json"), "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
     logging.info("📁 all_prices.json에 %d개 레코드(JSON 배열) 저장 완료", len(results))
