@@ -18,9 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.views.generic import RedirectView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recommend/', include('recommend.urls')),  # ← 추가
+    path('recommend/', include('recommend.urls')),
+    path('', RedirectView.as_view(url='/recommend/', permanent=True)),  # 루트 접속 시 /recommend/로 리다이렉트
 ]
 
 #---------------------------------------------------------------------------------------------------------

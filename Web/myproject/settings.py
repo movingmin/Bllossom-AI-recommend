@@ -29,9 +29,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-821vu^74-u6t9_q7lfs9)(1&ed8fe**5z68r4%)e-p$g^h_n3o'
 
-DEBUG = True # 배포하면 False로 변경할것
+DEBUG = False # 배포하면 False로 변경할것
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "49.50.134.132"] # 네이버클라우드 서버 배포시 ALLOWED_HOSTS = ["네이버클라우드 공인IP", "localhost", "127.0.0.1",]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*"] # 네이버클라우드 서버 배포시 ALLOWED_HOSTS = ["네이버클라우드 공인IP", "localhost", "127.0.0.1",]
+
+# Cloudflare Tunnel 사용 시 CSRF 검증 허용
+CSRF_TRUSTED_ORIGINS = ["https://*.trycloudflare.com"]
 
 
 # Application definition
@@ -62,8 +65,8 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],           #  그냥 비워둬도 됩니다
-        'APP_DIRS': True,     #  꼭 True여야 해요!
+        'DIRS': [],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
