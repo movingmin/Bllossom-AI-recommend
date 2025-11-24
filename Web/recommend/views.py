@@ -21,6 +21,11 @@ except ImportError:
 
 
 def main(request):
+    # 세션 키가 없으면 생성 (사용자 식별용)
+    if not request.session.session_key:
+        request.session.create()
+    session_key = request.session.session_key
+
     # 세션에 저장된 예산 불러오기 (없으면 0)
     budget = request.session.get("budget", 0)
 
@@ -66,11 +71,10 @@ def main(request):
                     request.session["budget"] = budget
                     context["budget"] = budget
                     
-                    # stock_data 전역 변수에 할당 및 추천 리스트 갱신
+                    # stock_data 전역 변수에 할당 및 추천 리스트 갱신 (세션별 파일 사용)
                     if stock_data:
                         try:
-                            stock_data.user_budget = budget
-                            stock_data.update_recommendations(budget)
+                            stock_data.update_recommendations(budget, session_key=session_key)
                         except Exception as e:
                             print(f"Error updating recommendations: {e}")
                             context["api_error"] = True
@@ -121,7 +125,7 @@ def main(request):
 
             if question:
                 print("DEBUG: Calling ask_invest_ai...")
-                answer = ask_invest_ai(question, stock_name=stock_name)
+                answer = ask_invest_ai(question, stock_name=stock_name, session_key=session_key)
                 print(f"DEBUG: Answer length={len(answer)}")
                 context["ai_answer"] = answer
             else:
@@ -143,8 +147,13 @@ def llm_endpoint(request):
         if not question:
             return JsonResponse({"error": "질문 내용이 없습니다."}, status=400)
             
+        # 세션 키 확보
+        if not request.session.session_key:
+            request.session.create()
+        session_key = request.session.session_key
+
         # Thread-safe LLM 호출
-        answer = ask_invest_ai_safe(question, stock_name=stock_name)
+        answer = ask_invest_ai_safe(question, stock_name=stock_name, session_key=session_key)
         return JsonResponse({"answer": answer})
     
     return JsonResponse({"error": "Invalid method"}, status=405)

@@ -12,11 +12,19 @@ MODEL_DIR = BASE_DIR / "ai" / "models"
 MODEL_ID = "Bllossom/llama-3.2-Korean-Bllossom-3B"
 
 # Data Paths
-FOR_LLM_PATH = BASE_DIR / "ai" / "db" / "for_llm.json"
+FOR_LLM_DIR = BASE_DIR / "ai" / "db"
+FOR_LLM_PATH = FOR_LLM_DIR / "for_llm.json"
 ALL_PRICES_PATH = BASE_DIR / "calling_api" / "db" / "all_prices.json"
 
 _model = None
 _tokenizer = None
+
+
+def get_for_llm_path(session_key: str | None = None) -> Path:
+    """세션 키별 LLM JSON 경로를 반환."""
+    if session_key:
+        return FOR_LLM_DIR / f"for_llm_{session_key}.json"
+    return FOR_LLM_PATH
 
 def load_model():
     global _model, _tokenizer
@@ -90,13 +98,22 @@ def generate_response(messages: list, max_new_tokens: int = 512, temperature: fl
     return _tokenizer.decode(response, skip_special_tokens=True)
 
 
-def load_recommendations(top_n: int = 50) -> str:
-    """for_llm.json에서 상위 N개 종목 정보를 문자열로 요약 반환"""
-    if not FOR_LLM_PATH.exists():
+def load_recommendations(
+    top_n: int = 50,
+    session_key: str | None = None,
+    file_path: Path | None = None,
+) -> str:
+    """for_llm.json(또는 사용자별 파일)에서 상위 N개 종목 정보를 문자열로 요약 반환"""
+    target_path = file_path or get_for_llm_path(session_key)
+    if not target_path.exists() and session_key:
+        # 세션 파일이 없을 때는 공용 파일로 폴백
+        target_path = FOR_LLM_PATH
+
+    if not target_path.exists():
         return ""
     
     try:
-        with open(FOR_LLM_PATH, "r", encoding="utf-8") as f:
+        with open(target_path, "r", encoding="utf-8") as f:
             data = json.load(f)
             
         # 상위 N개만 사용
@@ -142,10 +159,11 @@ def find_stock_price(question: str) -> str:
         print(f"Error loading prices: {e}")
         return ""
 
-def ask_invest_ai(question: str, stock_name: str | None = None) -> str:
+def ask_invest_ai(question: str, stock_name: str | None = None, session_key: str | None = None) -> str:
     """
     question: 사용자가 입력한 질문
     stock_name: 현재 선택된 종목명 (예: '삼성전자')
+    session_key: 사용자 세션 키 (사용자별 추천 리스트 로드용)
     """
 
     sentiment_text = None
@@ -153,7 +171,7 @@ def ask_invest_ai(question: str, stock_name: str | None = None) -> str:
         sentiment_text = format_sentiment_summary(stock_name)
 
     # 1. 추천 종목 리스트 로드 (상위 20개 정도로 제한하여 토큰 절약)
-    recommendations = load_recommendations(top_n=20)
+    recommendations = load_recommendations(top_n=20, session_key=session_key)
     
     # 2. 질문에 포함된 종목의 가격 정보 검색
     price_info = find_stock_price(question)
@@ -204,7 +222,7 @@ def get_waiting_count() -> int:
     """현재 대기 중인 요청 수 반환"""
     return _waiting_count
 
-def ask_invest_ai_safe(question: str, stock_name: str | None = None) -> str:
+def ask_invest_ai_safe(question: str, stock_name: str | None = None, session_key: str | None = None) -> str:
     """Thread-safe wrapper for ask_invest_ai"""
     global _waiting_count
     
@@ -214,7 +232,7 @@ def ask_invest_ai_safe(question: str, stock_name: str | None = None) -> str:
         with _llm_lock:
             # 내 차례가 되면 대기자 수 감소 (Lock 획득 직후)
             _waiting_count -= 1
-            return ask_invest_ai(question, stock_name)
+            return ask_invest_ai(question, stock_name, session_key)
     except Exception as e:
         # 혹시 모를 에러 시 대기자 수 보정
         if _waiting_count > 0:

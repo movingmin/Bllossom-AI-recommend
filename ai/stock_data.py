@@ -11,7 +11,8 @@ from typing import Dict, List, Optional, Any
 BASE_DIR = Path(__file__).resolve().parent.parent
 SCORES_PATH = BASE_DIR / "crawling" / "db" / "company_scores.json"
 PRICES_PATH = BASE_DIR / "calling_api" / "db" / "all_prices.json"
-LLM_DATA_PATH = BASE_DIR / "ai" / "db" / "for_llm.json"
+LLM_DIR = BASE_DIR / "ai" / "db"
+LLM_DATA_PATH = LLM_DIR / "for_llm.json"
 
 
 # === 데이터 모델 ===
@@ -271,23 +272,34 @@ def to_llm_json(companies: List[CompanyData]) -> str:
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 
+def get_llm_path(session_key: str | None = None) -> Path:
+    """세션 키별 LLM JSON 경로를 반환."""
+    if session_key:
+        return LLM_DIR / f"for_llm_{session_key}.json"
+    return LLM_DATA_PATH
+
+
 def save_llm_json(
     companies: List[CompanyData],
-    path: Path = LLM_DATA_PATH,
+    session_key: str | None = None,
+    path: Path | None = None,
 ) -> None:
+    target_path = path or get_llm_path(session_key)
     json_str = to_llm_json(companies)
-    path.parent.mkdir(parents=True, exist_ok=True)  # 디렉토리 없으면 생성
-    with path.open("w", encoding="utf-8") as f:
+    target_path.parent.mkdir(parents=True, exist_ok=True)  # 디렉토리 없으면 생성
+    with target_path.open("w", encoding="utf-8") as f:
         f.write(json_str)
 
 
-def update_recommendations(budget: int) -> None:
+def update_recommendations(
+    budget: int,
+    session_key: str | None = None,
+    file_path: Path | None = None,
+) -> None:
     """
     외부(views.py 등)에서 호출하여 추천 리스트를 갱신하는 함수.
+    file_path: 저장할 JSON 파일 경로 (기본값: 공용 파일)
     """
-    global user_budget
-    user_budget = budget
-    
     # 1. 데이터 로드
     company_map = load_company_data()
     
@@ -295,9 +307,10 @@ def update_recommendations(budget: int) -> None:
     # 기사 수 최소 기준은 상황에 맞춰 조정 (여기선 0 또는 기존 로직 유지)
     top_companies = pick_top_companies(company_map, top_n=50, min_articles=0, budget=budget)
     
-    # 3. 저장
-    save_llm_json(top_companies)
-    print(f"추천 리스트 갱신 완료 (예산: {budget}) -> {LLM_DATA_PATH}")
+    # 3. 저장 (세션 키별 파일 사용 가능)
+    target_path = file_path or get_llm_path(session_key)
+    save_llm_json(top_companies, path=target_path)
+    print(f"추천 리스트 갱신 완료 (예산: {budget}) -> {target_path}")
 
 
 if __name__ == "__main__":

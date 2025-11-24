@@ -607,7 +607,7 @@
 
                 // Timeout 설정 (120초)
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 120000);
+                const timeoutId = setTimeout(() => controller.abort(), 180000);
 
                 // API 호출
                 fetch('/recommend/api/llm/', {
