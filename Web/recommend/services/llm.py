@@ -171,7 +171,7 @@ def ask_invest_ai(question: str, stock_name: str | None = None) -> str:
         system_prompt += (
             f"\n[참고: 현재 뉴스 감성 분석 상위 종목]\n"
             f"{recommendations}\n"
-            f"사용자가 추천을 원하면 위 리스트를 참고하되, '이 종목들이 뉴스 분위기가 좋다'는 정도로만 언급하고 투자는 본인의 판단임을 강조해라.\n"
+            f"사용자가 추천을 원하면 위 리스트를 참고하되, '이 종목들이 뉴스 분위기가 좋다' 정도로만 설명하고, 점수, 긍정, 부정, 중립, 기사, 현재가를 설명하고 투자는 본인의 판단임을 강조해라.\n"
         )
         
     if price_info:
@@ -193,3 +193,35 @@ def ask_invest_ai(question: str, stock_name: str | None = None) -> str:
         return generate_response(messages)
     except Exception as e:
         return f"AI 모델 오류: {e}"
+
+# 동시성 제어를 위한 Lock 및 대기자 수 관리
+import threading
+
+_llm_lock = threading.Lock()
+_waiting_count = 0
+
+def get_waiting_count() -> int:
+    """현재 대기 중인 요청 수 반환"""
+    return _waiting_count
+
+def ask_invest_ai_safe(question: str, stock_name: str | None = None) -> str:
+    """Thread-safe wrapper for ask_invest_ai"""
+    global _waiting_count
+    
+    _waiting_count += 1
+    try:
+        # Lock 획득 대기
+        with _llm_lock:
+            # 내 차례가 되면 대기자 수 감소 (Lock 획득 직후)
+            _waiting_count -= 1
+            return ask_invest_ai(question, stock_name)
+    except Exception as e:
+        # 혹시 모를 에러 시 대기자 수 보정
+        if _waiting_count > 0:
+            _waiting_count -= 1
+        return f"시스템 오류: {e}"
+    finally:
+        # 정상적으로 Lock을 얻고 실행했다면 위에서 감소됨.
+        # Lock 획득 전 에러가 났을 경우를 대비한 로직은 복잡하므로
+        # 간단하게 Lock 안에서 감소시키는 것이 안전함.
+        pass

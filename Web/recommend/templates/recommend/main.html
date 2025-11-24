@@ -376,7 +376,7 @@
             <div class="page-header-icon">₩</div>
             <div>
                 <div class="page-header-title">AI 주식 투자 시뮬레이터</div>
-                <div class="page-header-sub">인공지능 기반 스마트 투자 분석 플랫폼</div>
+                <div class="page-header-sub">인공지능 기반 투자 추천 플랫폼</div>
             </div>
         </header>
 
@@ -426,36 +426,41 @@
                         </div>
                         <div>
                             <div class="ai-robot-text-main">
-                                AI 로봇이 투자 분석을 도와드립니다 🤖
-                            </div>
-                            <div class="ai-robot-text-sub">
-
+                                AI 로봇이 투자 추천, 공부를 도와드립니다 🤖
                             </div>
                         </div>
                     </div>
 
-                    <!-- LLM 질문 입력 -->
-                    <div class="llm-question-section">
-                        <div class="llm-question-label">AI에게 질문하기</div>
-                        <form method="post" action="{% url 'main' %}">
-                            {% csrf_token %}
-                            <div class="llm-input-wrap">
-                                <input type="text" name="llm_question" class="llm-input" placeholder="" />
-                                <button type="submit" class="llm-btn">
-                                    질문하기
-                                </button>
-                            </div>
-                        </form>
-
-                        <!-- LLM 답변 영역 추가 -->
-                        {% if ai_answer %}
-                        <div style="margin-top: 12px; padding: 12px 14px; border-radius: 12px;
-                                background: #f9fafb; font-size: 13px; line-height: 1.7;
-                                white-space: pre-wrap; color: #111827;">
-                            {{ ai_answer }}
+                    <!-- LLM 질문 섹션 (AJAX 적용) -->
+                    <div class="llm-section">
+                        <div class="llm-header" style="margin-top: 20px; margin-bottom: 10px;">
+                            <h2 style="font-size: 18px; font-weight: 700;">🤖 AI 주식 추천</h2>
+                            <p style="font-size: 13px; color: #6b7280;">주식 추천, 용어 등 궁금한 점을 물어보세요!</p>
                         </div>
-                        {% endif %}
-                        <!-- /LLM 답변 영역 -->
+
+                        <div class="llm-chat-box" id="llmChatBox"
+                            style="background: #f9fafb; border-radius: 12px; padding: 16px; min-height: 150px; margin-bottom: 10px; max-height: 400px; overflow-y: auto;">
+                            <!-- 초기 환영 메시지 -->
+                            {% if ai_answer %}
+                            <div class="chat-message ai-message">
+                                <div class="message-content"
+                                    style="white-space: pre-wrap; line-height: 1.6; font-size: 14px;">{{ ai_answer }}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="llm-input-wrap">
+                            <input type="text" id="llmQuestionInput" class="llm-input"
+                                placeholder="예: PER이 뭔가요? 삼성전자 호가창 보는 법 알려줘" />
+                            <button type="button" id="llmSubmitBtn" class="llm-btn">
+                                질문하기
+                            </button>
+                        </div>
+                        <div id="llmStatus" class="llm-status"
+                            style="display: none; margin-top: 8px; font-size: 13px; color: #2563eb;">
+                            ⏳ 답변 생성 중... (현재 대기: <span id="waitingCount">0</span>명)
+                        </div>
                     </div>
                 </div>
             </div>
@@ -554,6 +559,144 @@
             </div>
         </div>
     </div>
+
+    <!-- AJAX Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const questionInput = document.getElementById('llmQuestionInput');
+            const submitBtn = document.getElementById('llmSubmitBtn');
+            const chatBox = document.getElementById('llmChatBox');
+            const statusDiv = document.getElementById('llmStatus');
+            const waitingCountSpan = document.getElementById('waitingCount');
+
+            // 초기화 시 입력창 활성화 (새로고침 시 비활성 상태 유지 방지)
+            questionInput.disabled = false;
+            submitBtn.disabled = false;
+
+            let isProcessing = false;
+
+            // 엔터키 이벤트
+            questionInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter' && !isProcessing) {
+                    submitQuestion();
+                }
+            });
+
+            submitBtn.addEventListener('click', function () {
+                if (!isProcessing) {
+                    submitQuestion();
+                }
+            });
+
+            function submitQuestion() {
+                const question = questionInput.value.trim();
+                if (!question) return;
+
+                // UI 업데이트
+                isProcessing = true;
+                questionInput.disabled = true;
+                submitBtn.disabled = true;
+                statusDiv.style.display = 'block';
+
+                // 사용자 질문 표시
+                appendMessage(question, 'user');
+                questionInput.value = '';
+
+                // 대기열 상태 폴링 시작
+                const statusInterval = setInterval(checkStatus, 2000);
+
+                // Timeout 설정 (120초)
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 120000);
+
+                // API 호출
+                fetch('/recommend/api/llm/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: `question=${encodeURIComponent(question)}&stock_name={{ stock_name|default:'' }}`,
+                    signal: controller.signal
+                })
+                    .then(response => {
+                        clearTimeout(timeoutId);
+                        return response.json();
+                    })
+                    .then(data => {
+                        clearInterval(statusInterval);
+                        statusDiv.style.display = 'none';
+
+                        if (data.error) {
+                            appendMessage('에러가 발생했습니다: ' + data.error, 'ai');
+                        } else {
+                            appendMessage(data.answer, 'ai');
+                        }
+                    })
+                    .catch(error => {
+                        clearInterval(statusInterval);
+                        statusDiv.style.display = 'none';
+
+                        if (error.name === 'AbortError') {
+                            appendMessage('응답 시간이 초과되었습니다. 잠시 후 다시 시도해주세요.', 'ai');
+                        } else {
+                            appendMessage('시스템 오류가 발생했습니다.', 'ai');
+                            console.error('Error:', error);
+                        }
+                    })
+                    .finally(() => {
+                        isProcessing = false;
+                        questionInput.disabled = false;
+                        submitBtn.disabled = false;
+                        questionInput.focus();
+                    });
+            }
+
+            function checkStatus() {
+                fetch('/recommend/api/status/')
+                    .then(res => res.json())
+                    .then(data => {
+                        waitingCountSpan.textContent = data.waiting_count;
+                    })
+                    .catch(err => console.error(err));
+            }
+
+            function appendMessage(text, type) {
+                const div = document.createElement('div');
+                div.className = `chat-message ${type}-message`;
+                div.style.marginBottom = '10px';
+                div.style.padding = '10px';
+                div.style.borderRadius = '8px';
+                div.style.backgroundColor = type === 'user' ? '#e0f2fe' : '#f3f4f6';
+                div.style.alignSelf = type === 'user' ? 'flex-end' : 'flex-start';
+
+                const content = document.createElement('div');
+                content.style.whiteSpace = 'pre-wrap';
+                content.style.fontSize = '14px';
+                content.style.lineHeight = '1.6';
+                content.textContent = text;
+
+                div.appendChild(content);
+                chatBox.appendChild(div);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+        });
+    </script>
 
     {# ===== 차트 스크립트 (데이터 있을 때만) ===== #}
     {% if stock_name and chart_labels and chart_prices %}
