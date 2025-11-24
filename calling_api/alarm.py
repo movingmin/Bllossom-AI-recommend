@@ -18,7 +18,7 @@ def run_price_script():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(run_token_script, 'interval', minutes=1200, id="token_job")  # 20분마다 실행
+scheduler.add_job(run_token_script, 'interval', minutes=1200, id="token_job")  # 20시간마다 실행
 scheduler.add_job(run_price_script, 'interval', minutes=120, id="price_job")
 scheduler.start()
 
